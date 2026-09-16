@@ -345,8 +345,10 @@ export default function RkmClimatizacaoLanding({
   fontVariable: string;
 }) {
   const testiTrack = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
   const [faqIndex, setFaqIndex] = useState(0);
   const [popupOpen, setPopupOpen] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -380,6 +382,19 @@ export default function RkmClimatizacaoLanding({
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
     );
     els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setPastHero(true);
+      return;
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      setPastHero(!entry.isIntersecting);
+    });
+    observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
@@ -442,7 +457,7 @@ export default function RkmClimatizacaoLanding({
 
       <main id="top">
         {/* ===================== HERO ===================== */}
-        <section className="hero">
+        <section className="hero" ref={heroRef}>
           <div className="container">
             <div className="hero-copy">
               <span className="eyebrow">
@@ -1011,7 +1026,10 @@ export default function RkmClimatizacaoLanding({
       </footer>
 
       {/* ===================== FLOATING WHATSAPP ===================== */}
-      <WaLink src="botao_flutuante" className="wa-float">
+      <WaLink
+        src="botao_flutuante"
+        className={`wa-float${pastHero ? '' : ' wa-float-hidden'}`}
+      >
         <svg>
           <use href="#rkm-ic-whatsapp" />
         </svg>
