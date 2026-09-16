@@ -363,7 +363,11 @@ export default function RkmClimatizacaoLanding({
 
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>('.rkm-page .reveal');
-    if (!els.length || typeof IntersectionObserver === 'undefined') return;
+    if (!els.length) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      els.forEach((el) => el.classList.add('in-view'));
+      return;
+    }
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
