@@ -525,8 +525,8 @@ export default function RkmClimatizacaoLanding({
             <div className="about-photo">
               {/* oxlint-disable-next-line next/no-img-element */}
               <img
-                src="/rkm/service-manutencao.jpg"
-                alt="Técnico da RKM Climatização em atendimento"
+                src="/rkm/about-us.jpg"
+                alt="Técnico da RKM Climatização instalando ar-condicionado no Rio de Janeiro"
                 loading="lazy"
               />
             </div>
