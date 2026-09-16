@@ -35,6 +35,14 @@ const MESSAGES: Record<string, string> = {
     'Olá! Gostaria de um orçamento de projeto e ponto elétrico para ar-condicionado.',
   servico_higienizacao:
     'Olá! Gostaria de um orçamento para higienização de ar-condicionado.',
+  trust_band: DEFAULT_MSG,
+  brands_band:
+    'Olá! Gostaria de saber se vocês atendem a marca do meu ar-condicionado.',
+  about_us: DEFAULT_MSG,
+  why_us: DEFAULT_MSG,
+  galeria: DEFAULT_MSG,
+  depoimentos: DEFAULT_MSG,
+  faq_mini: DEFAULT_MSG,
   cta_final: DEFAULT_MSG,
   footer: DEFAULT_MSG,
   botao_flutuante: DEFAULT_MSG,
@@ -142,6 +150,17 @@ const SERVICES = [
     img: '/rkm/service-higienizacao.jpg',
     alt: 'Técnico higienizando evaporadora de ar-condicionado',
   },
+];
+
+const BRANDS = [
+  'Daikin',
+  'Hitachi',
+  'Samsung',
+  'LG',
+  'Springer',
+  'Gree',
+  'Midea',
+  'TCL',
 ];
 
 const WHY_US = [
@@ -483,6 +502,61 @@ export default function RkmClimatizacaoLanding({
               <span>Da sua casa ao PMOC da sua empresa</span>
             </div>
           </div>
+          <div className="container">
+            <div className="mini-cta on-dark center">
+              <p>
+                Ainda não sabe qual serviço precisa? A gente te ajuda a
+                descobrir.
+              </p>
+              <WaLink src="trust_band" className="btn btn-wa">
+                <svg className="ic">
+                  <use href="#rkm-ic-whatsapp" />
+                </svg>
+                Falar no WhatsApp
+              </WaLink>
+            </div>
+          </div>
+        </section>
+
+        {/* ===================== BRANDS BAND ===================== */}
+        <section className="brands-band">
+          <div className="container">
+            <div className="section-head center">
+              <span className="eyebrow">Marcas atendidas</span>
+              <h2>Atendemos e damos assistência em todas as marcas</h2>
+              <p>
+                Da instalação à manutenção, nossos técnicos trabalham com os
+                principais fabricantes do mercado.
+              </p>
+            </div>
+          </div>
+          <div className="brand-marquee">
+            <div className="brand-marquee-track">
+              {[...BRANDS, ...BRANDS].map((brand, i) => (
+                <span
+                  className="brand-chip"
+                  key={`${brand}-${i}`}
+                  aria-hidden={i >= BRANDS.length}
+                >
+                  {brand}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="container">
+            <div className="mini-cta on-dark center">
+              <p>
+                Não encontrou sua marca na lista? Fale com a gente, atendemos
+                praticamente todas.
+              </p>
+              <WaLink src="brands_band" className="btn btn-wa">
+                <svg className="ic">
+                  <use href="#rkm-ic-whatsapp" />
+                </svg>
+                Perguntar no WhatsApp
+              </WaLink>
+            </div>
+          </div>
         </section>
 
         {/* ===================== SERVICES ===================== */}
@@ -563,6 +637,15 @@ export default function RkmClimatizacaoLanding({
                   Residencial e empresarial
                 </li>
               </ul>
+              <div className="mini-cta">
+                <p>Quer saber mais sobre como podemos ajudar?</p>
+                <WaLink src="about_us" className="btn btn-wa">
+                  <svg className="ic">
+                    <use href="#rkm-ic-whatsapp" />
+                  </svg>
+                  Falar no WhatsApp
+                </WaLink>
+              </div>
             </div>
           </div>
         </section>
@@ -578,6 +661,23 @@ export default function RkmClimatizacaoLanding({
                 é quem instala. Isso significa combinado é combinado — no preço
                 e no prazo.
               </p>
+              <div className="why-photo">
+                {/* oxlint-disable-next-line next/no-img-element */}
+                <img
+                  src="/rkm/why-us.jpg"
+                  alt="Técnico da RKM Climatização sorrindo, pronto para atender"
+                  loading="lazy"
+                />
+              </div>
+              <div className="mini-cta">
+                <p>Ficou com alguma dúvida sobre nosso atendimento?</p>
+                <WaLink src="why_us" className="btn btn-wa">
+                  <svg className="ic">
+                    <use href="#rkm-ic-whatsapp" />
+                  </svg>
+                  Falar no WhatsApp
+                </WaLink>
+              </div>
             </div>
             <ul className="why-list">
               {WHY_US.map((item) => (
@@ -619,6 +719,15 @@ export default function RkmClimatizacaoLanding({
                   <span className="gallery-cap">{item.cap}</span>
                 </div>
               ))}
+            </div>
+            <div className="mini-cta center">
+              <p>Gostou do que viu? Peça seu orçamento agora.</p>
+              <WaLink src="galeria" className="btn btn-wa">
+                <svg className="ic">
+                  <use href="#rkm-ic-whatsapp" />
+                </svg>
+                Chamar no WhatsApp
+              </WaLink>
             </div>
           </div>
         </section>
@@ -692,6 +801,15 @@ export default function RkmClimatizacaoLanding({
                 </article>
               ))}
             </div>
+            <div className="mini-cta center">
+              <p>Quer ser o próximo cliente satisfeito?</p>
+              <WaLink src="depoimentos" className="btn btn-wa">
+                <svg className="ic">
+                  <use href="#rkm-ic-whatsapp" />
+                </svg>
+                Falar no WhatsApp
+              </WaLink>
+            </div>
           </div>
         </section>
 
@@ -721,6 +839,17 @@ export default function RkmClimatizacaoLanding({
                   />
                 </div>
               ))}
+            </div>
+          </div>
+          <div className="container">
+            <div className="mini-cta center">
+              <p>Sua empresa também pode contar com a gente.</p>
+              <WaLink src="partners" className="btn btn-wa">
+                <svg className="ic">
+                  <use href="#rkm-ic-whatsapp" />
+                </svg>
+                Falar no WhatsApp
+              </WaLink>
             </div>
           </div>
         </section>
@@ -756,6 +885,17 @@ export default function RkmClimatizacaoLanding({
                 <div className="faq-answer-q">{FAQS[faqIndex].q}</div>
                 <p className="faq-answer">{FAQS[faqIndex].a}</p>
               </section>
+            </div>
+            <div className="mini-cta center">
+              <p>
+                Ainda com dúvidas? Chame no WhatsApp e fale direto com a gente.
+              </p>
+              <WaLink src="faq_mini" className="btn btn-wa">
+                <svg className="ic">
+                  <use href="#rkm-ic-whatsapp" />
+                </svg>
+                Falar no WhatsApp
+              </WaLink>
             </div>
           </div>
         </section>
