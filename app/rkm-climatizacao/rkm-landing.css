@@ -36,6 +36,12 @@
   --band-2: #0a2c4d;
   --band-3: #1f83d4;
 
+  /* Vivid highlight blue — used sparingly on 2 blocks (trust band, final CTA)
+     to punctuate the page, distinct from the darker --band-* navy used
+     elsewhere (brands band, footer, popup offer). */
+  --vivid-1: #0e4fc2;
+  --vivid-2: #1f74e6;
+
   --amber-500: #f2a339;
   --amber-600: #d6822a;
   --coral-500: #ff6a4d;
@@ -211,6 +217,26 @@
   border-radius: 4px;
 }
 
+/* ===================== ENTRANCE ANIMATIONS ===================== */
+.rkm-page .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+.rkm-page .reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .rkm-page .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .rkm-page section {
   padding-block: clamp(3.25rem, 6vw, 6rem);
 }
@@ -302,15 +328,17 @@
 /* ===================== HERO ===================== */
 .rkm-page .hero {
   position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 82vh;
   padding-block: clamp(3rem, 13vw, 4.5rem);
   background-image:
     linear-gradient(
-      180deg,
-      rgba(6, 15, 26, 0.72) 0%,
-      rgba(6, 15, 26, 0.46) 28%,
-      rgba(6, 15, 26, 0.24) 50%,
-      rgba(7, 20, 34, 0.38) 72%,
-      rgba(7, 20, 34, 0.6) 100%
+      165deg,
+      rgba(9, 45, 138, 0.85) 0%,
+      rgba(14, 79, 194, 0.6) 32%,
+      rgba(14, 79, 194, 0.36) 58%,
+      rgba(9, 45, 138, 0.74) 100%
     ),
     url('/rkm/hero-mobile.jpg');
   background-size: cover;
@@ -319,14 +347,16 @@
 }
 @media (min-width: 760px) {
   .rkm-page .hero {
+    display: block;
+    min-height: 0;
     padding-block: clamp(4.5rem, 11vw, 7rem);
     background-image:
       linear-gradient(
         100deg,
-        rgba(6, 15, 26, 0.76) 0%,
-        rgba(6, 15, 26, 0.54) 28%,
-        rgba(6, 15, 26, 0.24) 52%,
-        rgba(6, 15, 26, 0.08) 74%
+        rgba(9, 45, 138, 0.82) 0%,
+        rgba(14, 79, 194, 0.6) 30%,
+        rgba(14, 79, 194, 0.26) 55%,
+        rgba(14, 79, 194, 0.08) 75%
       ),
       url('/rkm/hero-desktop.jpg');
     background-position: center 30%;
@@ -334,9 +364,34 @@
 }
 .rkm-page .hero .container {
   position: relative;
+  width: 100%;
 }
 .rkm-page .hero-copy {
   max-width: 36rem;
+  text-align: center;
+  margin-inline: auto;
+  animation: rkm-hero-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes rkm-hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rkm-page .hero-copy {
+    animation: none;
+  }
+}
+@media (min-width: 760px) {
+  .rkm-page .hero-copy {
+    text-align: left;
+    margin-inline: 0;
+  }
 }
 .rkm-page .hero-copy .eyebrow {
   margin-bottom: 1.1rem;
@@ -362,14 +417,22 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 1rem 1.5rem;
   margin-top: 1.75rem;
 }
 .rkm-page .hero-bullets {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.6rem 1.4rem;
   margin-top: 1.6rem;
+}
+@media (min-width: 760px) {
+  .rkm-page .hero-actions,
+  .rkm-page .hero-bullets {
+    justify-content: flex-start;
+  }
 }
 .rkm-page .hero-bullets li {
   display: flex;
@@ -416,7 +479,7 @@
 
 /* ===================== TRUST BAND ===================== */
 .rkm-page .trust-band {
-  background: var(--band-2);
+  background: linear-gradient(120deg, var(--vivid-1), var(--vivid-2));
   color: #fff;
   padding-block: clamp(2.5rem, 5vw, 3.5rem);
 }
@@ -1202,7 +1265,7 @@
 
 /* ===================== FINAL CTA ===================== */
 .rkm-page .final-cta {
-  background: linear-gradient(135deg, var(--band-1), var(--band-2));
+  background: linear-gradient(135deg, var(--vivid-2), var(--vivid-1));
   color: #fff;
   text-align: center;
 }

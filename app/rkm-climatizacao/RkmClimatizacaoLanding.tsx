@@ -101,6 +101,10 @@ function Stars({ count = 5 }: { count?: number }) {
   );
 }
 
+function staggerStyle(i: number, step = 90): React.CSSProperties {
+  return { '--reveal-delay': `${i * step}ms` } as React.CSSProperties;
+}
+
 const SERVICES = [
   {
     id: 'instalacao',
@@ -357,6 +361,24 @@ export default function RkmClimatizacaoLanding({
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>('.rkm-page .reveal');
+    if (!els.length || typeof IntersectionObserver === 'undefined') return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+    );
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   function closePopup() {
     setPopupOpen(false);
     try {
@@ -473,28 +495,28 @@ export default function RkmClimatizacaoLanding({
         {/* ===================== TRUST BAND ===================== */}
         <section className="trust-band">
           <div className="container">
-            <div className="trust-item">
+            <div className="trust-item reveal" style={staggerStyle(0)}>
               <svg>
                 <use href="#rkm-ic-gauge" />
               </svg>
               <b>Equipe especializada</b>
               <span>Técnicos capacitados e equipados</span>
             </div>
-            <div className="trust-item">
+            <div className="trust-item reveal" style={staggerStyle(1)}>
               <svg>
                 <use href="#rkm-ic-clock" />
               </svg>
               <b>Atendimento rápido</b>
               <span>Resposta no mesmo dia pelo WhatsApp</span>
             </div>
-            <div className="trust-item">
+            <div className="trust-item reveal" style={staggerStyle(2)}>
               <svg>
                 <use href="#rkm-ic-shield" />
               </svg>
               <b>Serviço garantido</b>
               <span>Garantia em mão de obra, peças e gás</span>
             </div>
-            <div className="trust-item">
+            <div className="trust-item reveal" style={staggerStyle(3)}>
               <svg>
                 <use href="#rkm-ic-building" />
               </svg>
@@ -521,7 +543,7 @@ export default function RkmClimatizacaoLanding({
         {/* ===================== BRANDS BAND ===================== */}
         <section className="brands-band">
           <div className="container">
-            <div className="section-head center">
+            <div className="section-head center reveal">
               <span className="eyebrow">Marcas atendidas</span>
               <h2>Atendemos e damos assistência em todas as marcas</h2>
               <p>
@@ -562,7 +584,7 @@ export default function RkmClimatizacaoLanding({
         {/* ===================== SERVICES ===================== */}
         <section id="servicos">
           <div className="container">
-            <div className="section-head">
+            <div className="section-head reveal">
               <span className="eyebrow">O que fazemos</span>
               <h2>Serviços de climatização de ponta a ponta</h2>
               <p>
@@ -571,8 +593,12 @@ export default function RkmClimatizacaoLanding({
               </p>
             </div>
             <div className="services-grid">
-              {SERVICES.map((svc) => (
-                <article className="svc-card" key={svc.id}>
+              {SERVICES.map((svc, i) => (
+                <article
+                  className="svc-card reveal"
+                  key={svc.id}
+                  style={staggerStyle(i, 70)}
+                >
                   <div className="svc-photo">
                     {/* oxlint-disable-next-line next/no-img-element */}
                     <img src={svc.img} alt={svc.alt} loading="lazy" />
@@ -596,7 +622,7 @@ export default function RkmClimatizacaoLanding({
         {/* ===================== ABOUT US ===================== */}
         <section className="about-us">
           <div className="container">
-            <div className="about-photo">
+            <div className="about-photo reveal">
               {/* oxlint-disable-next-line next/no-img-element */}
               <img
                 src="/rkm/about-us.jpg"
@@ -604,7 +630,7 @@ export default function RkmClimatizacaoLanding({
                 loading="lazy"
               />
             </div>
-            <div className="about-copy">
+            <div className="about-copy reveal" style={staggerStyle(1, 120)}>
               <span className="eyebrow">Quem somos</span>
               <h2>Uma equipe pronta para cuidar do seu ar-condicionado</h2>
               <p>
@@ -653,7 +679,7 @@ export default function RkmClimatizacaoLanding({
         {/* ===================== WHY US ===================== */}
         <section className="why-us">
           <div className="container">
-            <div className="why-copy">
+            <div className="why-copy reveal">
               <span className="eyebrow">Por que a RKM Climatização</span>
               <h2>Time preparado, do orçamento ao pós-serviço</h2>
               <p>
@@ -680,8 +706,12 @@ export default function RkmClimatizacaoLanding({
               </div>
             </div>
             <ul className="why-list">
-              {WHY_US.map((item) => (
-                <li className="why-item" key={item.title}>
+              {WHY_US.map((item, i) => (
+                <li
+                  className="why-item reveal"
+                  key={item.title}
+                  style={staggerStyle(i, 70)}
+                >
                   <span className="why-ic">
                     <svg>
                       <use href={`#${item.icon}`} />
@@ -700,7 +730,7 @@ export default function RkmClimatizacaoLanding({
         {/* ===================== GALLERY ===================== */}
         <section id="galeria">
           <div className="container">
-            <div className="section-head">
+            <div className="section-head reveal">
               <span className="eyebrow">Trabalhos realizados</span>
               <h2>Instalações e manutenções recentes</h2>
               <p>
@@ -709,10 +739,11 @@ export default function RkmClimatizacaoLanding({
               </p>
             </div>
             <div className="gallery-grid">
-              {GALLERY.map((item) => (
+              {GALLERY.map((item, i) => (
                 <div
-                  className={`gallery-item${item.big ? ' big' : ''}`}
+                  className={`gallery-item reveal${item.big ? ' big' : ''}`}
                   key={item.img}
+                  style={staggerStyle(i, 60)}
                 >
                   {/* oxlint-disable-next-line next/no-img-element */}
                   <img src={item.img} alt={item.alt} loading="lazy" />
@@ -735,7 +766,7 @@ export default function RkmClimatizacaoLanding({
         {/* ===================== TESTIMONIALS ===================== */}
         <section id="depoimentos">
           <div className="container">
-            <div className="testi-head">
+            <div className="testi-head reveal">
               <div className="section-head">
                 <span className="eyebrow">Depoimentos</span>
                 <h2>Clientes reais recomendam a RKM Climatização</h2>
@@ -779,7 +810,7 @@ export default function RkmClimatizacaoLanding({
               </div>
             </div>
 
-            <div className="testi-track" ref={testiTrack}>
+            <div className="testi-track reveal" ref={testiTrack}>
               {TESTIMONIALS.map((t) => (
                 <article className="testi-card" key={t.name}>
                   <svg className="testi-google">
@@ -816,7 +847,7 @@ export default function RkmClimatizacaoLanding({
         {/* ===================== PARTNERS ===================== */}
         <section className="partners">
           <div className="container">
-            <div className="section-head center">
+            <div className="section-head center reveal">
               <span className="eyebrow">Parceiros</span>
               <h2 style={{ fontSize: 'var(--fs-xl)' }}>
                 Empresas que confiam na RKM Climatização
@@ -857,11 +888,11 @@ export default function RkmClimatizacaoLanding({
         {/* ===================== FAQ ===================== */}
         <section id="faq">
           <div className="container">
-            <div className="section-head">
+            <div className="section-head reveal">
               <span className="eyebrow">Dúvidas frequentes</span>
               <h2>Perguntas antes de chamar</h2>
             </div>
-            <div className="faq-layout">
+            <div className="faq-layout reveal">
               <div className="faq-questions">
                 {FAQS.map((item, i) => (
                   <button
@@ -902,7 +933,7 @@ export default function RkmClimatizacaoLanding({
 
         {/* ===================== FINAL CTA ===================== */}
         <section className="final-cta">
-          <div className="container">
+          <div className="container reveal">
             <h2>Chame agora e receba seu orçamento ainda hoje</h2>
             <p>
               Residencial ou empresarial, instalação, manutenção ou PMOC — fale
