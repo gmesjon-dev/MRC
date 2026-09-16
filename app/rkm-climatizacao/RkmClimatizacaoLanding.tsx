@@ -35,7 +35,6 @@ const MESSAGES: Record<string, string> = {
     'Olá! Gostaria de um orçamento de projeto e ponto elétrico para ar-condicionado.',
   servico_higienizacao:
     'Olá! Gostaria de um orçamento para higienização de ar-condicionado.',
-  trust_band: DEFAULT_MSG,
   brands_band:
     'Olá! Gostaria de saber se vocês atendem a marca do meu ar-condicionado.',
   about_us: DEFAULT_MSG,
@@ -541,20 +540,6 @@ export default function RkmClimatizacaoLanding({
               </svg>
               <b>Residencial e empresarial</b>
               <span>Da sua casa ao PMOC da sua empresa</span>
-            </div>
-          </div>
-          <div className="container">
-            <div className="mini-cta on-dark center">
-              <p>
-                Ainda não sabe qual serviço precisa? A gente te ajuda a
-                descobrir.
-              </p>
-              <WaLink src="trust_band" className="btn btn-wa">
-                <svg className="ic">
-                  <use href="#rkm-ic-whatsapp" />
-                </svg>
-                Falar no WhatsApp
-              </WaLink>
             </div>
           </div>
         </section>
