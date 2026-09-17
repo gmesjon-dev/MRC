@@ -186,14 +186,14 @@ const SERVICES = [
 ];
 
 const BRANDS = [
-  'Daikin',
-  'Hitachi',
-  'Samsung',
-  'LG',
-  'Springer',
-  'Gree',
-  'Midea',
-  'TCL',
+  { name: 'Daikin', file: 'daikin.svg' },
+  { name: 'Hitachi', file: 'hitachi.svg' },
+  { name: 'Samsung', file: 'samsung.svg' },
+  { name: 'LG', file: 'lg.svg' },
+  { name: 'Springer', file: 'springer.png' },
+  { name: 'Gree', file: 'gree.svg' },
+  { name: 'Midea', file: 'midea.svg' },
+  { name: 'TCL', file: 'tcl.svg' },
 ];
 
 const WHY_US = [
@@ -928,10 +928,15 @@ export default function RkmClimatizacaoLanding({
               {[...BRANDS, ...BRANDS].map((brand, i) => (
                 <span
                   className="brand-chip"
-                  key={`${brand}-${i}`}
+                  key={`${brand.file}-${i}`}
                   aria-hidden={i >= BRANDS.length}
                 >
-                  {brand}
+                  {/* oxlint-disable-next-line next/no-img-element */}
+                  <img
+                    src={`/rkm/brands/${brand.file}`}
+                    alt={brand.name}
+                    loading="lazy"
+                  />
                 </span>
               ))}
             </div>
