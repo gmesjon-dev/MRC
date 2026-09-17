@@ -35,6 +35,12 @@ const MESSAGES: Record<string, string> = {
     'Olá! Gostaria de um orçamento de projeto e ponto elétrico para ar-condicionado.',
   servico_higienizacao:
     'Olá! Gostaria de um orçamento para higienização de ar-condicionado.',
+  servico_camara_frigorifica:
+    'Olá! Gostaria de um orçamento para instalação ou manutenção de câmara frigorífica.',
+  servico_projetos_comerciais:
+    'Olá! Gostaria de um orçamento para um projeto comercial de climatização.',
+  servico_obras_climatizacao:
+    'Olá! Gostaria de um orçamento para obra/infraestrutura de climatização.',
   brands_band:
     'Olá! Gostaria de saber se vocês atendem a marca do meu ar-condicionado.',
   about_us: DEFAULT_MSG,
@@ -153,6 +159,30 @@ const SERVICES = [
     img: '/rkm/service-higienizacao.jpg',
     alt: 'Técnico higienizando evaporadora de ar-condicionado',
   },
+  {
+    id: 'camara-frigorifica',
+    src: 'servico_camara_frigorifica',
+    title: 'Câmara Frigorífica',
+    desc: 'Instalação e manutenção de câmaras frias para restaurantes, mercados e indústria alimentícia, com controle preciso de temperatura e isolamento térmico.',
+    img: '/rkm/service-camara-frigorifica.jpg',
+    alt: 'Câmara frigorífica comercial',
+  },
+  {
+    id: 'projetos-comerciais',
+    src: 'servico_projetos_comerciais',
+    title: 'Projetos Comerciais',
+    desc: 'Climatização sob medida para lojas, escritórios, restaurantes e condomínios, com dimensionamento de carga térmica e sistemas VRF/multi-split.',
+    img: '/rkm/service-projetos-comerciais.jpg',
+    alt: 'Sistema de ar-condicionado VRF em ambiente comercial',
+  },
+  {
+    id: 'obras-climatizacao',
+    src: 'servico_obras_climatizacao',
+    title: 'Obras de Climatização',
+    desc: 'Infraestrutura completa para climatização: passagem de dutos, shafts e pontos de dreno integrados à obra civil, do projeto à entrega.',
+    img: '/rkm/service-obras.jpg',
+    alt: 'Infraestrutura de dutos para climatização em obra',
+  },
 ];
 
 const BRANDS = [
@@ -199,37 +229,62 @@ const WHY_US = [
   },
 ];
 
-const GALLERY = [
+type GalleryCategory = 'residencial' | 'empresarial';
+
+const GALLERY_FILTERS: { id: 'todos' | GalleryCategory; label: string }[] = [
+  { id: 'todos', label: 'Todos' },
+  { id: 'residencial', label: 'Residencial' },
+  { id: 'empresarial', label: 'Empresarial' },
+];
+
+const GALLERY: {
+  img: string;
+  alt: string;
+  title: string;
+  category: GalleryCategory;
+  location: string;
+}[] = [
   {
     img: '/rkm/gallery-01.jpg',
     alt: 'Instalação residencial de ar-condicionado',
-    cap: 'Instalação residencial — split inverter',
-    big: true,
+    title: 'Instalação residencial de split inverter',
+    category: 'residencial',
+    location: 'Zona Sul, RJ',
   },
   {
     img: '/rkm/gallery-02.jpg',
     alt: 'Manutenção de condensadora',
-    cap: 'Manutenção preventiva em condensadora',
+    title: 'Manutenção preventiva em condensadora',
+    category: 'empresarial',
+    location: 'Barra da Tijuca, RJ',
   },
   {
     img: '/rkm/gallery-03.jpg',
     alt: 'Cassete de teto em ambiente comercial',
-    cap: 'Cassete de teto em sala comercial',
+    title: 'Cassete de teto em sala comercial',
+    category: 'empresarial',
+    location: 'Centro, RJ',
   },
   {
     img: '/rkm/gallery-04.jpg',
     alt: 'Recarga de gás com teste de vácuo',
-    cap: 'Recarga de gás e teste de vácuo',
+    title: 'Recarga de gás e teste de vácuo',
+    category: 'residencial',
+    location: 'Tijuca, RJ',
   },
   {
     img: '/rkm/gallery-05.jpg',
     alt: 'PMOC em ambiente empresarial',
-    cap: 'PMOC — laudo técnico para empresa',
+    title: 'PMOC — laudo técnico para empresa',
+    category: 'empresarial',
+    location: 'Niterói, RJ',
   },
   {
     img: '/rkm/gallery-06.jpg',
     alt: 'Higienização de evaporadora',
-    cap: 'Higienização completa da evaporadora',
+    title: 'Higienização completa da evaporadora',
+    category: 'residencial',
+    location: 'Zona Norte, RJ',
   },
 ];
 
@@ -348,6 +403,9 @@ export default function RkmClimatizacaoLanding({
   const [faqIndex, setFaqIndex] = useState(0);
   const [popupOpen, setPopupOpen] = useState(false);
   const [pastHero, setPastHero] = useState(false);
+  const [galleryFilter, setGalleryFilter] = useState<'todos' | GalleryCategory>(
+    'todos',
+  );
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -510,76 +568,123 @@ export default function RkmClimatizacaoLanding({
           </div>
         </section>
 
-        {/* ===================== TRUST BAND ===================== */}
-        <section className="trust-band">
+        {/* ===================== TESTIMONIALS ===================== */}
+        <section id="depoimentos">
           <div className="container">
-            <div className="trust-item reveal" style={staggerStyle(0)}>
-              <svg>
-                <use href="#rkm-ic-gauge" />
-              </svg>
-              <b>Equipe especializada</b>
-              <span>Técnicos capacitados e equipados</span>
+            <div className="testi-head reveal">
+              <div className="section-head">
+                <span className="eyebrow">Depoimentos</span>
+                <h2>Clientes reais recomendam a RKM Climatização</h2>
+              </div>
+              <div className="testi-head-right">
+                <div className="rating-card">
+                  <div className="word">EXCELENTE</div>
+                  <div className="stars">
+                    <Stars />
+                  </div>
+                  <div className="score">
+                    <b>4.9</b> · Com base em 127 avaliações
+                  </div>
+                  <div className="google">
+                    <svg>
+                      <use href="#rkm-ic-google" />
+                    </svg>
+                    <span>Google</span>
+                  </div>
+                </div>
+                <div className="testi-nav">
+                  <button
+                    className="nav-btn"
+                    aria-label="Depoimento anterior"
+                    onClick={() => scrollTesti(-1)}
+                  >
+                    <svg>
+                      <use href="#rkm-ic-chevron-left" />
+                    </svg>
+                  </button>
+                  <button
+                    className="nav-btn"
+                    aria-label="Próximo depoimento"
+                    onClick={() => scrollTesti(1)}
+                  >
+                    <svg>
+                      <use href="#rkm-ic-chevron-right" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="trust-item reveal" style={staggerStyle(1)}>
-              <svg>
-                <use href="#rkm-ic-clock" />
-              </svg>
-              <b>Atendimento rápido</b>
-              <span>Resposta no mesmo dia pelo WhatsApp</span>
+
+            <div className="testi-track reveal" ref={testiTrack}>
+              {TESTIMONIALS.map((t) => (
+                <article className="testi-card" key={t.name}>
+                  <svg className="testi-google">
+                    <use href="#rkm-ic-google" />
+                  </svg>
+                  <div className="testi-top">
+                    <div className="avatar" style={{ background: t.color }}>
+                      {t.initials}
+                    </div>
+                    <div>
+                      <div className="testi-name">{t.name}</div>
+                      <div className="testi-meta">{t.meta}</div>
+                    </div>
+                  </div>
+                  <div className="testi-stars">
+                    <Stars count={t.stars} />
+                  </div>
+                  <p className="testi-text">{t.text}</p>
+                </article>
+              ))}
             </div>
-            <div className="trust-item reveal" style={staggerStyle(2)}>
-              <svg>
-                <use href="#rkm-ic-shield" />
-              </svg>
-              <b>Serviço garantido</b>
-              <span>Garantia em mão de obra, peças e gás</span>
-            </div>
-            <div className="trust-item reveal" style={staggerStyle(3)}>
-              <svg>
-                <use href="#rkm-ic-building" />
-              </svg>
-              <b>Residencial e empresarial</b>
-              <span>Da sua casa ao PMOC da sua empresa</span>
+            <div className="mini-cta center">
+              <p>Quer ser o próximo cliente satisfeito?</p>
+              <WaLink src="depoimentos" className="btn btn-wa">
+                <svg className="ic">
+                  <use href="#rkm-ic-whatsapp" />
+                </svg>
+                Falar no WhatsApp
+              </WaLink>
             </div>
           </div>
         </section>
 
-        {/* ===================== BRANDS BAND ===================== */}
-        <section className="brands-band">
+        {/* ===================== PARTNERS ===================== */}
+        <section className="partners">
           <div className="container">
             <div className="section-head center reveal">
-              <span className="eyebrow">Marcas atendidas</span>
-              <h2>Atendemos e damos assistência em todas as marcas</h2>
-              <p>
-                Da instalação à manutenção, nossos técnicos trabalham com os
-                principais fabricantes do mercado.
-              </p>
+              <span className="eyebrow">Parceiros</span>
+              <h2 style={{ fontSize: 'var(--fs-xl)' }}>
+                Empresas que confiam na RKM Climatização
+              </h2>
             </div>
           </div>
-          <div className="brand-marquee">
-            <div className="brand-marquee-track">
-              {[...BRANDS, ...BRANDS].map((brand, i) => (
-                <span
-                  className="brand-chip"
-                  key={`${brand}-${i}`}
-                  aria-hidden={i >= BRANDS.length}
+          <div className="marquee">
+            <div className="marquee-track">
+              {[...PARTNERS, ...PARTNERS].map((p, i) => (
+                <div
+                  className={`partner-card${p.onDark ? ' on-dark' : ''}`}
+                  key={`${p.file}-${i}`}
+                  aria-hidden={i >= PARTNERS.length}
                 >
-                  {brand}
-                </span>
+                  {/* oxlint-disable-next-line next/no-img-element */}
+                  <img
+                    src={`/rkm/partners/${p.file}`}
+                    alt={p.name}
+                    loading="lazy"
+                  />
+                </div>
               ))}
             </div>
           </div>
           <div className="container">
-            <div className="mini-cta on-dark center">
-              <p>
-                Não encontrou sua marca na lista? Fale com a gente, atendemos
-                praticamente todas.
-              </p>
-              <WaLink src="brands_band" className="btn btn-wa">
+            <div className="mini-cta center">
+              <p>Sua empresa também pode contar com a gente.</p>
+              <WaLink src="partners" className="btn btn-wa">
                 <svg className="ic">
                   <use href="#rkm-ic-whatsapp" />
                 </svg>
-                Perguntar no WhatsApp
+                Falar no WhatsApp
               </WaLink>
             </div>
           </div>
@@ -734,26 +839,65 @@ export default function RkmClimatizacaoLanding({
         {/* ===================== GALLERY ===================== */}
         <section id="galeria">
           <div className="container">
-            <div className="section-head reveal">
+            <div className="section-head center reveal">
               <span className="eyebrow">Trabalhos realizados</span>
-              <h2>Instalações e manutenções recentes</h2>
+              <h2>
+                Veja nossas <em>instalações e manutenções</em>
+              </h2>
               <p>
-                Uma amostra de serviços entregues em residências, lojas e
-                empresas no Rio de Janeiro.
+                Confira alguns dos trabalhos realizados pela nossa equipe no Rio
+                de Janeiro e região.
               </p>
             </div>
-            <div className="gallery-grid">
-              {GALLERY.map((item, i) => (
-                <div
-                  className={`gallery-item reveal${item.big ? ' big' : ''}`}
-                  key={item.img}
-                  style={staggerStyle(i, 60)}
+            <div className="gallery-filters reveal">
+              {GALLERY_FILTERS.map((f) => (
+                <button
+                  key={f.id}
+                  type="button"
+                  className={`gallery-filter-btn${galleryFilter === f.id ? ' active' : ''}`}
+                  onClick={() => setGalleryFilter(f.id)}
                 >
-                  {/* oxlint-disable-next-line next/no-img-element */}
-                  <img src={item.img} alt={item.alt} loading="lazy" />
-                  <span className="gallery-cap">{item.cap}</span>
-                </div>
+                  {f.label}
+                </button>
               ))}
+            </div>
+            <div className="gallery-grid">
+              {GALLERY.map((item, i) => {
+                const visible =
+                  galleryFilter === 'todos' || item.category === galleryFilter;
+                return (
+                  <div
+                    className={`gallery-card reveal${visible ? '' : ' gallery-card-hidden'}`}
+                    key={item.img}
+                    style={staggerStyle(i, 60)}
+                  >
+                    <div className="gallery-card-photo">
+                      {/* oxlint-disable-next-line next/no-img-element */}
+                      <img src={item.img} alt={item.alt} loading="lazy" />
+                      <span className="gallery-badge">
+                        {item.category === 'residencial'
+                          ? 'Residencial'
+                          : 'Empresarial'}
+                      </span>
+                    </div>
+                    <div className="gallery-card-body">
+                      <h3>{item.title}</h3>
+                      <span className="gallery-card-loc">
+                        <svg>
+                          <use href="#rkm-ic-map" />
+                        </svg>
+                        {item.location}
+                      </span>
+                      <WaLink src="galeria" className="gallery-card-link">
+                        Ver mais
+                        <svg>
+                          <use href="#rkm-ic-arrow-right" />
+                        </svg>
+                      </WaLink>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
             <div className="mini-cta center">
               <p>Gostou do que viu? Peça seu orçamento agora.</p>
@@ -767,123 +911,42 @@ export default function RkmClimatizacaoLanding({
           </div>
         </section>
 
-        {/* ===================== TESTIMONIALS ===================== */}
-        <section id="depoimentos">
-          <div className="container">
-            <div className="testi-head reveal">
-              <div className="section-head">
-                <span className="eyebrow">Depoimentos</span>
-                <h2>Clientes reais recomendam a RKM Climatização</h2>
-              </div>
-              <div className="testi-head-right">
-                <div className="rating-card">
-                  <div className="word">EXCELENTE</div>
-                  <div className="stars">
-                    <Stars />
-                  </div>
-                  <div className="score">
-                    <b>4.9</b> · Com base em 127 avaliações
-                  </div>
-                  <div className="google">
-                    <svg>
-                      <use href="#rkm-ic-google" />
-                    </svg>
-                    <span>Google</span>
-                  </div>
-                </div>
-                <div className="testi-nav">
-                  <button
-                    className="nav-btn"
-                    aria-label="Depoimento anterior"
-                    onClick={() => scrollTesti(-1)}
-                  >
-                    <svg>
-                      <use href="#rkm-ic-chevron-left" />
-                    </svg>
-                  </button>
-                  <button
-                    className="nav-btn"
-                    aria-label="Próximo depoimento"
-                    onClick={() => scrollTesti(1)}
-                  >
-                    <svg>
-                      <use href="#rkm-ic-chevron-right" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="testi-track reveal" ref={testiTrack}>
-              {TESTIMONIALS.map((t) => (
-                <article className="testi-card" key={t.name}>
-                  <svg className="testi-google">
-                    <use href="#rkm-ic-google" />
-                  </svg>
-                  <div className="testi-top">
-                    <div className="avatar" style={{ background: t.color }}>
-                      {t.initials}
-                    </div>
-                    <div>
-                      <div className="testi-name">{t.name}</div>
-                      <div className="testi-meta">{t.meta}</div>
-                    </div>
-                  </div>
-                  <div className="testi-stars">
-                    <Stars count={t.stars} />
-                  </div>
-                  <p className="testi-text">{t.text}</p>
-                </article>
-              ))}
-            </div>
-            <div className="mini-cta center">
-              <p>Quer ser o próximo cliente satisfeito?</p>
-              <WaLink src="depoimentos" className="btn btn-wa">
-                <svg className="ic">
-                  <use href="#rkm-ic-whatsapp" />
-                </svg>
-                Falar no WhatsApp
-              </WaLink>
-            </div>
-          </div>
-        </section>
-
-        {/* ===================== PARTNERS ===================== */}
-        <section className="partners">
+        {/* ===================== BRANDS BAND ===================== */}
+        <section className="brands-band">
           <div className="container">
             <div className="section-head center reveal">
-              <span className="eyebrow">Parceiros</span>
-              <h2 style={{ fontSize: 'var(--fs-xl)' }}>
-                Empresas que confiam na RKM Climatização
-              </h2>
+              <span className="eyebrow">Marcas atendidas</span>
+              <h2>Atendemos e damos assistência em todas as marcas</h2>
+              <p>
+                Da instalação à manutenção, nossos técnicos trabalham com os
+                principais fabricantes do mercado.
+              </p>
             </div>
           </div>
-          <div className="marquee">
-            <div className="marquee-track">
-              {[...PARTNERS, ...PARTNERS].map((p, i) => (
-                <div
-                  className={`partner-card${p.onDark ? ' on-dark' : ''}`}
-                  key={`${p.file}-${i}`}
-                  aria-hidden={i >= PARTNERS.length}
+          <div className="brand-marquee">
+            <div className="brand-marquee-track">
+              {[...BRANDS, ...BRANDS].map((brand, i) => (
+                <span
+                  className="brand-chip"
+                  key={`${brand}-${i}`}
+                  aria-hidden={i >= BRANDS.length}
                 >
-                  {/* oxlint-disable-next-line next/no-img-element */}
-                  <img
-                    src={`/rkm/partners/${p.file}`}
-                    alt={p.name}
-                    loading="lazy"
-                  />
-                </div>
+                  {brand}
+                </span>
               ))}
             </div>
           </div>
           <div className="container">
-            <div className="mini-cta center">
-              <p>Sua empresa também pode contar com a gente.</p>
-              <WaLink src="partners" className="btn btn-wa">
+            <div className="mini-cta on-dark center">
+              <p>
+                Não encontrou sua marca na lista? Fale com a gente, atendemos
+                praticamente todas.
+              </p>
+              <WaLink src="brands_band" className="btn btn-wa">
                 <svg className="ic">
                   <use href="#rkm-ic-whatsapp" />
                 </svg>
-                Falar no WhatsApp
+                Perguntar no WhatsApp
               </WaLink>
             </div>
           </div>
