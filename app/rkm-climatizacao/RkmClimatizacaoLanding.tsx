@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { IconSprite } from './icon-sprite';
-import { RkmLogo } from './rkm-logo';
 import './rkm-landing.css';
 
 // Plain <img> is used throughout instead of next/image: this route ships static
@@ -354,7 +353,6 @@ const PARTNERS: { name: string; file: string; onDark?: boolean }[] = [
   { name: 'Mr Cheney', file: 'mr-cheney.png' },
   { name: 'Drogaria Pacheco', file: 'drogaria-pacheco.png' },
   { name: 'Drogaria São Paulo', file: 'drogaria-sao-paulo.png' },
-  { name: 'HNT', file: 'hnt.png' },
   { name: 'KFC', file: 'kfc.svg' },
   { name: 'Natura', file: 'natura.png' },
   { name: 'O Boticário', file: 'o-boticario.png' },
@@ -495,7 +493,12 @@ export default function RkmClimatizacaoLanding({
             href="#top"
             aria-label="RKM Climatização — início"
           >
-            <RkmLogo className="logo-mark" id="header" />
+            {/* oxlint-disable-next-line next/no-img-element */}
+            <img
+              className="logo-mark"
+              src="/rkm/logo.png"
+              alt="RKM Climatização"
+            />
             <span className="brand-name">
               RKM Climatização
               <small>AR-CONDICIONADO · RIO DE JANEIRO</small>
@@ -1027,7 +1030,12 @@ export default function RkmClimatizacaoLanding({
           <div className="footer-grid">
             <div>
               <div className="footer-brand">
-                <RkmLogo className="logo-mark" id="footer" />
+                {/* oxlint-disable-next-line next/no-img-element */}
+                <img
+                  className="logo-mark"
+                  src="/rkm/logo.png"
+                  alt="RKM Climatização"
+                />
                 <b>RKM Climatização</b>
               </div>
               <p className="tag">
