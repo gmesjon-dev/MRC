@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="MK Climatização">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d63b0"/>
+      <stop offset="1" stop-color="#07203d"/>
+    </linearGradient>
+    <linearGradient id="ice" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bfe9ff"/>
+      <stop offset="1" stop-color="#3cc4f2"/>
+    </linearGradient>
+    <path id="arc" d="M40 128a80 80 0 0 0 160 0"/>
+  </defs>
+  <circle cx="120" cy="120" r="120" fill="url(#bg)"/>
+  <circle cx="120" cy="120" r="108" fill="none" stroke="#3cc4f2" stroke-opacity=".45" stroke-width="2"/>
+  <g transform="translate(120 58)" stroke="url(#ice)" stroke-width="5" stroke-linecap="round" fill="none">
+    <path d="M0-22V22M-19-11 19 11M-19 11 19-11"/>
+    <path d="M-6-17 0-11 6-17M-6 17 0 11 6 17M-17-3-10-6-12-13M17 3 10 6 12 13M-17 3-10 6-12 13M17-3 10-6 12-13"/>
+  </g>
+  <text x="120" y="142" text-anchor="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="900" font-size="66" letter-spacing="-2" fill="#ffffff">MK</text>
+  <text font-family="Inter, Arial, Helvetica, sans-serif" font-weight="700" font-size="17" letter-spacing="3" fill="#bfe9ff">
+    <textPath href="#arc" startOffset="50%" text-anchor="middle">CLIMATIZAÇÃO</textPath>
+  </text>
+</svg>
