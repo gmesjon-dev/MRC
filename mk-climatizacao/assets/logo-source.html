@@ -1,0 +1,27 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Michroma&display=block" rel="stylesheet">
+<style>html,body{margin:0;background:transparent}svg{display:block}</style></head><body>
+<svg id="logo" width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+<defs>
+ <radialGradient id="bg" cx="50%" cy="42%" r="62%"><stop offset="0" stop-color="#0f2448"/><stop offset=".55" stop-color="#071226"/><stop offset="1" stop-color="#03070f"/></radialGradient>
+ <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3aa0ff"/><stop offset=".5" stop-color="#0b3f9e"/><stop offset="1" stop-color="#3aa0ff"/></linearGradient>
+ <linearGradient id="silver" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".42" stop-color="#dfe5ec"/><stop offset=".58" stop-color="#9aa6b4"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+ <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#58b4ff"/><stop offset=".5" stop-color="#1c7cff"/><stop offset="1" stop-color="#0a4fd6"/></linearGradient>
+ <linearGradient id="line" x1="0" x2="1"><stop offset="0" stop-color="#1c7cff" stop-opacity="0"/><stop offset=".5" stop-color="#3aa0ff"/><stop offset="1" stop-color="#1c7cff" stop-opacity="0"/></linearGradient>
+ <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5" result="b"/><feFlood flood-color="#1c7cff" flood-opacity=".55"/><feComposite in2="b" operator="in" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <g id="arm"><path d="M-16 0 L-16 -150 L0 -176 L16 -150 L16 0 Z"/><path d="M-10 -88 L-62 -126 L-52 -144 L0 -106 L52 -144 L62 -126 L10 -88 Z"/><path d="M-8 -44 L-40 -66 L-33 -78 L0 -56 L33 -78 L40 -66 L8 -44 Z"/></g>
+</defs>
+<circle cx="512" cy="512" r="506" fill="url(#ring)"/>
+<circle cx="512" cy="512" r="492" fill="url(#bg)"/>
+<path d="M150 300 L330 120" stroke="#1c7cff" stroke-width="4" opacity=".55"/>
+<path d="M700 905 L880 725" stroke="#1c7cff" stroke-width="4" opacity=".55"/>
+<g transform="translate(0 -46)"><text x="372" y="560" text-anchor="middle" font-family="Orbitron" font-weight="900" font-size="250" fill="url(#silver)" filter="url(#soft)" letter-spacing="-6">MK</text>
+<g transform="translate(768 470) scale(.8)" fill="url(#blue)" filter="url(#glow)">
+ <use href="#arm"/><use href="#arm" transform="rotate(60)"/><use href="#arm" transform="rotate(120)"/><use href="#arm" transform="rotate(180)"/><use href="#arm" transform="rotate(240)"/><use href="#arm" transform="rotate(300)"/>
+ <polygon points="0,-26 22.5,-13 22.5,13 0,26 -22.5,13 -22.5,-13"/>
+</g>
+<text x="512" y="700" text-anchor="middle" font-family="Michroma" font-size="62" fill="url(#silver)" letter-spacing="6">CLIMATIZAÇÃO</text>
+<rect x="262" y="738" width="500" height="6" rx="3" fill="url(#line)"/>
+<text x="512" y="800" text-anchor="middle" font-family="Michroma" font-size="22" fill="#b8c4d2" letter-spacing="5">CONFORTO TÉRMICO</text></g>
+</svg></body></html>
