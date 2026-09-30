@@ -128,7 +128,16 @@
     });
     track.addEventListener('mouseleave', autoplay);
     track.addEventListener('touchend', autoplay, { passive: true });
-    autoplay();
+
+    // setas e autoplay só quando há avaliações fora da tela
+    var arrows = section.querySelector('.reviews__arrows');
+    function syncOverflow() {
+      var overflow = track.scrollWidth > track.clientWidth + 4;
+      if (arrows) arrows.style.visibility = overflow ? '' : 'hidden';
+      if (overflow) autoplay(); else clearInterval(timer);
+    }
+    window.addEventListener('resize', syncOverflow);
+    syncOverflow();
   }
 
   /* ---------- Trabalhos realizados: filtros + lightbox ---------- */

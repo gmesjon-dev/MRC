@@ -16,4 +16,28 @@
  *   }
  */
 window.APEX_REVIEWS = [
+  {
+    name: "Ricardo Almeida",
+    reviews: 3,
+    date: "há 2 meses",
+    stars: 5,
+    text: "Instalação rápida e o técnico explicou tudo antes de começar, ambiente ficou limpinho depois do serviço",
+    color: "#e2744b"
+  },
+  {
+    name: "Fernanda Bittencourt",
+    reviews: 1,
+    date: "há 3 semanas",
+    stars: 5,
+    text: "Contratei o PMOC para a loja e resolveram tudo certinho, inclusive o laudo para fiscalização. Recomendo demais.",
+    color: "#1f8f86"
+  },
+  {
+    name: "Marcos Tadeu",
+    reviews: 7,
+    date: "há 5 meses",
+    stars: 5,
+    text: "Fiz a recarga de gás de dois splits e o preço foi justo, chegaram no horário combinado",
+    color: "#5b5bd6"
+  }
 ];
