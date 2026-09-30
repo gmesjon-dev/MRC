@@ -86,6 +86,7 @@
       </a>
       <nav class="nav" id="nav" aria-label="Menu principal">
         <a href="#servicos">Serviços</a>
+        <a href="#trabalhos">Trabalhos</a>
         <a href="#sobre">Sobre</a>
         <a href="#galeria">Galeria</a>
         <a href="#avaliacoes">Avaliações</a>
@@ -137,6 +138,34 @@
         <div class="stat"><strong data-count="98">0</strong><span>% clientes satisfeitos</span></div>
         <div class="stat"><strong data-count="24">0</strong><span>h para retorno do orçamento</span></div>
         <div class="stat"><strong data-count="90">0</strong><span>dias de garantia no serviço</span></div>
+      </div>
+    </section>
+
+    <!-- AVALIAÇÕES -->
+    <section class="section section--tint" id="avaliacoes">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Avaliações</span>
+          <h2>O que nossos clientes dizem</h2>
+        </div>
+
+        <div class="reviews-summary">
+          <svg class="g"><use href="#google"/></svg>
+          <div>
+            <strong>Excelente</strong>
+            <span class="stars"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span>
+            <small>Com base em 87 avaliações</small>
+          </div>
+        </div>
+
+        <div class="carousel" id="reviews">
+          <button class="carousel__btn carousel__btn--prev" aria-label="Avaliação anterior"><svg><use href="#arrow"/></svg></button>
+          <div class="carousel__viewport">
+            <div class="carousel__track"><!-- preenchido via JS --></div>
+          </div>
+          <button class="carousel__btn carousel__btn--next" aria-label="Próxima avaliação"><svg><use href="#arrow"/></svg></button>
+        </div>
+        <div class="carousel__dots" id="reviewDots"></div>
       </div>
     </section>
 
@@ -213,8 +242,78 @@
       </div>
     </section>
 
+    <!-- TRABALHOS REALIZADOS -->
+    <section class="section section--tint" id="trabalhos">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Trabalhos realizados</span>
+          <h2>Veja nossas <span class="hl">instalações e manutenções</span></h2>
+          <p>Confira alguns dos trabalhos realizados pela nossa equipe em Maceió e região.</p>
+        </div>
+        <div class="filters" role="tablist" aria-label="Filtrar trabalhos">
+          <button class="filter is-active" data-filter="todos" role="tab" aria-selected="true">Todos</button>
+          <button class="filter" data-filter="residencial" role="tab" aria-selected="false">Residencial</button>
+          <button class="filter" data-filter="empresarial" role="tab" aria-selected="false">Empresarial</button>
+        </div>
+        <div class="jobs">
+          <article class="job" data-cat="residencial">
+            <div class="job__img"><span class="job__tag">Residencial</span><img src="assets/img/trabalhos/trabalho-1.webp" alt="Sala de estar com split inverter instalado" width="800" height="600" loading="lazy"></div>
+            <div class="job__body">
+              <h3>Instalação de split inverter em sala de estar</h3>
+              <p class="job__loc"><svg class="i"><use href="#pin"/></svg> Ponta Verde, Maceió</p>
+              <a href="#" class="job__more js-wa" data-msg="Olá! Vi no site o trabalho &quot;Instalação de split inverter em sala de estar&quot; e quero um orçamento.">Quero um serviço assim <svg class="i"><use href="#arrow"/></svg></a>
+            </div>
+          </article>
+          <article class="job" data-cat="empresarial">
+            <div class="job__img"><span class="job__tag">Empresarial</span><img src="assets/img/trabalhos/trabalho-2.webp" alt="Técnico fazendo manutenção em condensadora comercial" width="800" height="600" loading="lazy"></div>
+            <div class="job__body">
+              <h3>Manutenção preventiva em condensadora</h3>
+              <p class="job__loc"><svg class="i"><use href="#pin"/></svg> Jatiúca, Maceió</p>
+              <a href="#" class="job__more js-wa" data-msg="Olá! Vi no site o trabalho &quot;Manutenção preventiva em condensadora&quot; e quero um orçamento.">Quero um serviço assim <svg class="i"><use href="#arrow"/></svg></a>
+            </div>
+          </article>
+          <article class="job" data-cat="empresarial">
+            <div class="job__img"><span class="job__tag">Empresarial</span><img src="assets/img/trabalhos/trabalho-3.webp" alt="Escritório com ar-condicionado split instalado" width="800" height="600" loading="lazy"></div>
+            <div class="job__body">
+              <h3>Split instalado em escritório</h3>
+              <p class="job__loc"><svg class="i"><use href="#pin"/></svg> Centro, Maceió</p>
+              <a href="#" class="job__more js-wa" data-msg="Olá! Vi no site o trabalho &quot;Split instalado em escritório&quot; e quero um orçamento.">Quero um serviço assim <svg class="i"><use href="#arrow"/></svg></a>
+            </div>
+          </article>
+          <article class="job" data-cat="residencial">
+            <div class="job__img"><span class="job__tag">Residencial</span><img src="assets/img/trabalhos/trabalho-4.webp" alt="Técnico medindo pressão com manifold" width="800" height="600" loading="lazy"></div>
+            <div class="job__body">
+              <h3>Recarga de gás e teste de vácuo</h3>
+              <p class="job__loc"><svg class="i"><use href="#pin"/></svg> Farol, Maceió</p>
+              <a href="#" class="job__more js-wa" data-msg="Olá! Vi no site o trabalho &quot;Recarga de gás e teste de vácuo&quot; e quero um orçamento.">Quero um serviço assim <svg class="i"><use href="#arrow"/></svg></a>
+            </div>
+          </article>
+          <article class="job" data-cat="empresarial">
+            <div class="job__img"><span class="job__tag">Empresarial</span><img src="assets/img/trabalhos/trabalho-5.webp" alt="Condensadoras de sistema comercial" width="800" height="600" loading="lazy"></div>
+            <div class="job__body">
+              <h3>PMOC em central de condensadoras</h3>
+              <p class="job__loc"><svg class="i"><use href="#pin"/></svg> Tabuleiro do Martins, Maceió</p>
+              <a href="#" class="job__more js-wa" data-msg="Olá! Vi no site o trabalho &quot;PMOC em central de condensadoras&quot; e quero um orçamento.">Quero um serviço assim <svg class="i"><use href="#arrow"/></svg></a>
+            </div>
+          </article>
+          <article class="job" data-cat="residencial">
+            <div class="job__img"><span class="job__tag">Residencial</span><img src="assets/img/trabalhos/trabalho-6.webp" alt="Técnico usando manifold digital" width="800" height="600" loading="lazy"></div>
+            <div class="job__body">
+              <h3>Diagnóstico completo com manifold digital</h3>
+              <p class="job__loc"><svg class="i"><use href="#pin"/></svg> Cruz das Almas, Maceió</p>
+              <a href="#" class="job__more js-wa" data-msg="Olá! Vi no site o trabalho &quot;Diagnóstico completo com manifold digital&quot; e quero um orçamento.">Quero um serviço assim <svg class="i"><use href="#arrow"/></svg></a>
+            </div>
+          </article>
+        </div>
+        <div class="section__foot">
+          <p>Gostou do que viu? Peça seu orçamento agora.</p>
+          <a href="#" class="btn btn--wa js-wa" data-msg="Olá! Vi os trabalhos no site e quero um orçamento."><svg class="i"><use href="#wa"/></svg> Chamar no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
     <!-- Residencial x Empresarial -->
-    <section class="section section--tint">
+    <section class="section">
       <div class="container">
         <div class="section__head">
           <span class="eyebrow">Para quem atendemos</span>
@@ -268,20 +367,24 @@
       </div>
     </section>
 
-    <!-- COMO FUNCIONA -->
-    <section class="section section--navy">
+    <!-- MARCAS -->
+    <section class="section section--navy brands" id="marcas">
       <div class="container">
         <div class="section__head section__head--light">
-          <span class="eyebrow">Simples e rápido</span>
-          <h2>Como funciona o atendimento</h2>
+          <span class="eyebrow">Marcas atendidas</span>
+          <h2>Atendemos e damos assistência em todas as marcas</h2>
+          <p>Da instalação à manutenção, nossos técnicos trabalham com os principais fabricantes do mercado.</p>
         </div>
-        <ol class="steps">
-          <li><span>1</span><h4>Chame no WhatsApp</h4><p>Conte o que precisa e envie uma foto do equipamento, se puder.</p></li>
-          <li><span>2</span><h4>Receba o orçamento</h4><p>Valor claro e sem compromisso, normalmente em minutos.</p></li>
-          <li><span>3</span><h4>Agendamos a visita</h4><p>No dia e horário que for melhor para você.</p></li>
-          <li><span>4</span><h4>Serviço com garantia</h4><p>Técnico uniformizado, ambiente limpo e ar gelando.</p></li>
-        </ol>
-        <div class="center"><a href="#" class="btn btn--wa btn--lg js-wa" data-msg="Olá! Quero agendar um atendimento."><svg class="i"><use href="#wa"/></svg> Quero agendar agora</a></div>
+      </div>
+      <div class="marquee" aria-label="Marcas atendidas">
+        <ul class="marquee__track"><li class="brand-card"><img src="assets/img/marcas/samsung.png" alt="Samsung" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/lg.png" alt="LG" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/springer.png" alt="Springer" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/gree.png" alt="Gree" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/midea.png" alt="Midea" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/tcl.png" alt="TCL" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/daikin.png" alt="Daikin" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/hitachi.png" alt="Hitachi" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/elgin.png" alt="Elgin" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/carrier.png" alt="Carrier" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/fujitsu.png" alt="Fujitsu" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/electrolux.png" alt="Electrolux" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/philco.png" alt="Philco" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/panasonic.png" alt="Panasonic" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/consul.png" alt="Consul" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/komeco.png" alt="Komeco" loading="lazy"></li></ul>
+        <ul class="marquee__track" aria-hidden="true"><li class="brand-card"><img src="assets/img/marcas/samsung.png" alt="Samsung" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/lg.png" alt="LG" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/springer.png" alt="Springer" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/gree.png" alt="Gree" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/midea.png" alt="Midea" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/tcl.png" alt="TCL" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/daikin.png" alt="Daikin" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/hitachi.png" alt="Hitachi" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/elgin.png" alt="Elgin" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/carrier.png" alt="Carrier" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/fujitsu.png" alt="Fujitsu" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/electrolux.png" alt="Electrolux" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/philco.png" alt="Philco" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/panasonic.png" alt="Panasonic" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/consul.png" alt="Consul" loading="lazy"></li><li class="brand-card"><img src="assets/img/marcas/komeco.png" alt="Komeco" loading="lazy"></li></ul>
+      </div>
+      <div class="container">
+        <div class="section__foot section__foot--light">
+          <p>Não encontrou sua marca na lista? Fale com a gente, atendemos praticamente todas.</p>
+          <a href="#" class="btn btn--wa js-wa" data-msg="Olá! Vocês atendem a marca do meu ar-condicionado?"><svg class="i"><use href="#wa"/></svg> Perguntar no WhatsApp</a>
+        </div>
       </div>
     </section>
 
@@ -322,31 +425,20 @@
       </div>
     </section>
 
-    <!-- AVALIAÇÕES -->
-    <section class="section section--tint" id="avaliacoes">
+    <!-- COMO FUNCIONA -->
+    <section class="section section--navy">
       <div class="container">
-        <div class="section__head">
-          <span class="eyebrow">Avaliações</span>
-          <h2>O que nossos clientes dizem</h2>
+        <div class="section__head section__head--light">
+          <span class="eyebrow">Simples e rápido</span>
+          <h2>Como funciona o atendimento</h2>
         </div>
-
-        <div class="reviews-summary">
-          <svg class="g"><use href="#google"/></svg>
-          <div>
-            <strong>Excelente</strong>
-            <span class="stars"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span>
-            <small>Com base em 87 avaliações</small>
-          </div>
-        </div>
-
-        <div class="carousel" id="reviews">
-          <button class="carousel__btn carousel__btn--prev" aria-label="Avaliação anterior"><svg><use href="#arrow"/></svg></button>
-          <div class="carousel__viewport">
-            <div class="carousel__track"><!-- preenchido via JS --></div>
-          </div>
-          <button class="carousel__btn carousel__btn--next" aria-label="Próxima avaliação"><svg><use href="#arrow"/></svg></button>
-        </div>
-        <div class="carousel__dots" id="reviewDots"></div>
+        <ol class="steps">
+          <li><span>1</span><h4>Chame no WhatsApp</h4><p>Conte o que precisa e envie uma foto do equipamento, se puder.</p></li>
+          <li><span>2</span><h4>Receba o orçamento</h4><p>Valor claro e sem compromisso, normalmente em minutos.</p></li>
+          <li><span>3</span><h4>Agendamos a visita</h4><p>No dia e horário que for melhor para você.</p></li>
+          <li><span>4</span><h4>Serviço com garantia</h4><p>Técnico uniformizado, ambiente limpo e ar gelando.</p></li>
+        </ol>
+        <div class="center"><a href="#" class="btn btn--wa btn--lg js-wa" data-msg="Olá! Quero agendar um atendimento."><svg class="i"><use href="#wa"/></svg> Quero agendar agora</a></div>
       </div>
     </section>
 
@@ -419,18 +511,20 @@
     <div class="popup__overlay" data-close></div>
     <div class="popup__box">
       <button class="popup__close" data-close aria-label="Fechar"><svg><use href="#close"/></svg></button>
-      <div class="popup__img"><img src="assets/img/popup.webp" alt="Ar-condicionado split instalado pela Clima Fresh" width="700" height="900" loading="lazy"></div>
+      <div class="popup__img"><img src="assets/img/popup.webp" alt="Ar-condicionado split instalado pela Clima Fresh" width="840" height="480" loading="lazy"></div>
+      <div class="popup__offer">
+        <span class="popup__tag">Oferta por tempo limitado</span>
+        <strong class="popup__big" id="popupTitle">10% OFF</strong>
+        <p>em instalação e manutenção de ar-condicionado em Maceió</p>
+      </div>
       <div class="popup__body">
-        <img src="assets/img/logo-clima-fresh-192.png" alt="Clima Fresh" width="64" height="64" class="popup__logo">
-        <span class="popup__tag">Calor em Maceió? 🥵</span>
-        <h3 id="popupTitle">Seu ar-condicionado está gelando como deveria?</h3>
-        <p>Ar fraco, pingando ou com cheiro ruim é sinal de que precisa de <strong>higienização ou manutenção</strong>. Fale com um técnico agora e receba seu orçamento <strong>grátis</strong> em minutos.</p>
-        <ul class="checks">
-          <li><svg class="i"><use href="#check"/></svg> Atendimento residencial e empresarial</li>
-          <li><svg class="i"><use href="#check"/></svg> Garantia em todos os serviços</li>
+        <ul class="popup__list">
+          <li><svg class="i"><use href="#check"/></svg> Válido para orçamentos solicitados hoje</li>
+          <li><svg class="i"><use href="#check"/></svg> Todos os serviços com garantia</li>
+          <li><svg class="i"><use href="#check"/></svg> Pagamento no Pix, cartão ou dinheiro</li>
         </ul>
-        <a href="#" class="btn btn--wa btn--lg btn--block js-wa" data-msg="Olá! Vi o aviso no site e quero um orçamento para meu ar-condicionado."><svg class="i"><use href="#wa"/></svg> Quero meu orçamento grátis</a>
-        <button class="popup__skip" data-close>Agora não, obrigado</button>
+        <a href="#" class="btn btn--wa btn--xl btn--block js-wa" data-msg="Olá! Vi a oferta de 10% OFF no site e quero resgatar meu desconto."><svg class="i"><use href="#wa"/></svg> Resgatar meu 10% no WhatsApp</a>
+        <button class="popup__skip" data-close>Não, obrigado</button>
       </div>
     </div>
   </div>

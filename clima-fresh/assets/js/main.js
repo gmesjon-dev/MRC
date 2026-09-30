@@ -79,6 +79,21 @@
     document.querySelectorAll('[data-count]').forEach(countUp);
   }
 
+  /* ---------- Trabalhos realizados: filtros ---------- */
+  var filters = document.querySelectorAll('.filter');
+  var jobs = document.querySelectorAll('.job');
+  filters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var f = btn.getAttribute('data-filter');
+      filters.forEach(function (b) {
+        var on = b === btn;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-selected', String(on));
+      });
+      jobs.forEach(function (j) { j.hidden = f !== 'todos' && j.getAttribute('data-cat') !== f; });
+    });
+  });
+
   /* ---------- Galeria: "ver mais" + lightbox ---------- */
   var gallery = document.getElementById('gallery');
   var gLinks = Array.prototype.slice.call(gallery.querySelectorAll('a'));
