@@ -13,8 +13,8 @@ python3 -m http.server 8080   # abra http://localhost:8080
 
 | Seção | Observações |
 | --- | --- |
-| Banner | Foto real da central de condensadoras; `hero-desktop.webp` e `hero-mobile.webp` com recortes diferentes |
-| Clientes atendidos | Carrossel infinito de logos, pausa ao passar o mouse |
+| Banner | Foto real de câmara fria com portas de vidro; `hero-desktop.webp` (foto à direita, esmaecendo à esquerda) e `hero-mobile.webp` (foto inteira no topo) |
+| Marcas | Carrossel infinito com as marcas de climatização e refrigeração, pausa ao passar o mouse |
 | Serviços | Câmara fria, manutenção, instalação, PMOC, VRF e VRV. Cada card tem um botão de WhatsApp com mensagem própria |
 | Diferenciais | Garantia de 6 meses em destaque |
 | Como funciona | 4 passos |
@@ -45,4 +45,4 @@ e também `gtag('event', 'whatsapp_click', ...)` se o gtag estiver na página. N
 
 - `assets/img/gallery/`, banner, serviço "Câmara fria" e "Instalação", pop-up e CTA final: **fotos reais enviadas pelo cliente**.
 - Serviços "Manutenção", "PMOC", "VRF" e "VRV": fotos do [Pexels](https://www.pexels.com/license/) (uso comercial gratuito, sem necessidade de atribuição): IDs 6471912, 32588555, 38228166 e 5463587.
-- Logos de clientes: Wikimedia Commons (Riachuelo, Casas Bahia, Drogarias Pacheco, KFC, Natura, O Boticário, Itaú), sites oficiais (Patroni, Griletto, HNT, Viena, Batata Inglesa via IMC) e seeklogo (Pontofrio, Drogaria São Paulo, Bacio di Latte, Mr. Cheney). As marcas não foram alteradas. HNT e Griletto só têm versão branca, por isso aparecem sobre a cor oficial de cada marca.
+- Logos das marcas (Daikin, LG, Samsung, Carrier, Midea, Gree, Fujitsu, Trane, Elgin, Danfoss, Bitzer, Embraco): seeklogo, sem alteração nas marcas. Para trocar ou incluir, adicione o arquivo em `assets/img/marcas/` e um `<li>` na seção `#marcas`.
