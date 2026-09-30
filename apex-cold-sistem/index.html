@@ -67,10 +67,10 @@
         <img src="assets/img/logo-apex-h.webp" width="836" height="200" alt="Ápex Cold Sistem">
       </a>
       <nav class="nav" id="menu" aria-label="Menu principal">
+        <a href="#avaliacoes" data-reviews-link>Avaliações</a>
         <a href="#servicos">Serviços</a>
         <a href="#diferenciais">Diferenciais</a>
-        <a href="#galeria">Obras</a>
-        <a href="#avaliacoes" data-reviews-link>Avaliações</a>
+        <a href="#trabalhos">Trabalhos</a>
         <a href="#faq">Dúvidas</a>
       </nav>
       <a class="btn btn--wa btn--sm header__cta" href="https://wa.me/556295596638" data-cta="header" data-msg="Olá! Vim pelo site da Ápex Cold Sistem e gostaria de solicitar um orçamento.">
@@ -129,6 +129,27 @@
           <li><img src="assets/img/marcas/bitzer.webp" alt="Bitzer" loading="lazy" width="160" height="50"></li>
           <li><img src="assets/img/marcas/embraco.webp" alt="Embraco" loading="lazy" width="160" height="50"></li>
         </ul>
+      </div>
+    </section>
+
+    <!-- AVALIAÇÕES (carrossel no estilo Google)
+         Cards gerados a partir de assets/js/reviews.js. Com a lista vazia a seção fica
+         oculta. ?demo-avaliacoes na URL mostra cards de exemplo para ver o layout. -->
+    <section class="section reviews" id="avaliacoes" aria-labelledby="avaliacoes-title" hidden>
+      <div class="container">
+        <div class="reviews__head">
+          <div>
+            <p class="eyebrow">Avaliações no Google</p>
+            <h2 id="avaliacoes-title">O que nossos clientes dizem</h2>
+          </div>
+          <div class="reviews__arrows">
+            <button class="reviews__nav reviews__nav--prev" type="button" aria-label="Avaliações anteriores"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <button class="reviews__nav reviews__nav--next" type="button" aria-label="Próximas avaliações"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          </div>
+        </div>
+      </div>
+      <div class="reviews__viewport container">
+        <ul class="reviews__track" data-reviews></ul>
       </div>
     </section>
 
@@ -296,32 +317,142 @@
       </div>
     </section>
 
-    <!-- 6. GALERIA -->
-    <section class="section" id="galeria" aria-labelledby="galeria-title">
+    <!-- TRABALHOS REALIZADOS (fotos reais, sem repetir imagens de outras seções) -->
+    <section class="section section--ice" id="trabalhos" aria-labelledby="trabalhos-title">
       <div class="container">
-        <div class="section-head section-head--split">
-          <div>
-            <p class="eyebrow">Galeria de obras</p>
-            <h2 id="galeria-title">Projetos executados pela Ápex</h2>
-          </div>
-          <p>Câmaras frias, centrais de refrigeração e quadros de comando montados pela nossa equipe. Toque em uma foto para ampliar.</p>
+        <div class="section-head section-head--center">
+          <p class="eyebrow eyebrow--pill">Trabalhos realizados</p>
+          <h2 id="trabalhos-title">Veja nossas <em>instalações</em> e <em>obras</em></h2>
+          <p>Confira alguns dos projetos executados pela equipe da Ápex Cold Sistem.</p>
         </div>
-
-        <ul class="gallery" data-gallery>
-          <li class="gallery__item gallery__item--wide"><a href="assets/img/gallery/camara-compressores.webp" data-caption="Central de unidades condensadoras para câmaras frias"><img src="assets/img/gallery/camara-compressores-sq.webp" alt="Central de unidades condensadoras para câmaras frias" loading="lazy" width="640" height="640"></a></li>
-          <li class="gallery__item"><a href="assets/img/gallery/camara-portas-vidro.webp" data-caption="Câmara fria com portas de vidro para exposição"><img src="assets/img/gallery/camara-portas-vidro-sq.webp" alt="Câmara fria com portas de vidro para exposição" loading="lazy" width="640" height="640"></a></li>
-          <li class="gallery__item"><a href="assets/img/gallery/camara-bebidas.webp" data-caption="Câmara fria de bebidas com portas expositoras"><img src="assets/img/gallery/camara-bebidas-sq.webp" alt="Câmara fria de bebidas com portas expositoras" loading="lazy" width="640" height="640"></a></li>
-          <li class="gallery__item"><a href="assets/img/gallery/montagem-paineis.webp" data-caption="Montagem de câmara fria com painéis isotérmicos"><img src="assets/img/gallery/montagem-paineis-sq.webp" alt="Montagem de câmara fria com painéis isotérmicos" loading="lazy" width="640" height="640"></a></li>
-          <li class="gallery__item"><a href="assets/img/gallery/quadro-comando.webp" data-caption="Quadro de comando elétrico montado pela equipe"><img src="assets/img/gallery/quadro-comando-sq.webp" alt="Quadro de comando elétrico montado pela equipe" loading="lazy" width="640" height="640"></a></li>
-          <li class="gallery__item"><a href="assets/img/gallery/camara-pronta.webp" data-caption="Câmara fria finalizada em área externa"><img src="assets/img/gallery/camara-pronta-sq.webp" alt="Câmara fria finalizada em área externa" loading="lazy" width="640" height="640"></a></li>
-          <li class="gallery__item"><a href="assets/img/gallery/camara-expositora.webp" data-caption="Câmara com frente de vidro em estrutura comercial"><img src="assets/img/gallery/camara-expositora-sq.webp" alt="Câmara com frente de vidro em estrutura comercial" loading="lazy" width="640" height="640"></a></li>
-          <li class="gallery__item"><a href="assets/img/gallery/montagem-estrutura.webp" data-caption="Obra de câmara fria de grande porte em andamento"><img src="assets/img/gallery/montagem-estrutura-sq.webp" alt="Obra de câmara fria de grande porte em andamento" loading="lazy" width="640" height="640"></a></li>
-          <li class="gallery__item"><a href="assets/img/gallery/unidades-condensadoras.webp" data-caption="Linha de unidades condensadoras instaladas"><img src="assets/img/gallery/unidades-condensadoras-sq.webp" alt="Linha de unidades condensadoras instaladas" loading="lazy" width="640" height="640"></a></li>
-          <li class="gallery__item"><a href="assets/img/gallery/camara-porta.webp" data-caption="Porta e controlador de câmara fria"><img src="assets/img/gallery/camara-porta-sq.webp" alt="Porta e controlador de câmara fria" loading="lazy" width="640" height="640"></a></li>
-          <li class="gallery__item"><a href="assets/img/gallery/quadro-eletrico.webp" data-caption="Instalação elétrica de comando"><img src="assets/img/gallery/quadro-eletrico-sq.webp" alt="Instalação elétrica de comando" loading="lazy" width="640" height="640"></a></li>
-          <li class="gallery__item"><a href="assets/img/gallery/camara-externa.webp" data-caption="Câmara fria externa com unidade condensadora"><img src="assets/img/gallery/camara-externa-sq.webp" alt="Câmara fria externa com unidade condensadora" loading="lazy" width="640" height="640"></a></li>
-          <li class="gallery__item"><a href="assets/img/gallery/montagem-altura.webp" data-caption="Montagem de painéis em altura"><img src="assets/img/gallery/montagem-altura-sq.webp" alt="Montagem de painéis em altura" loading="lazy" width="640" height="640"></a></li>
-          <li class="gallery__item gallery__item--wide"><a href="assets/img/gallery/camara-vidro-lateral.webp" data-caption="Câmara com portas de vidro vista lateral"><img src="assets/img/gallery/camara-vidro-lateral-sq.webp" alt="Câmara com portas de vidro vista lateral" loading="lazy" width="640" height="640"></a></li>
+        <div class="filters" role="group" aria-label="Filtrar trabalhos">
+          <button type="button" class="is-active" data-filter="all" aria-pressed="true">Todos</button>
+          <button type="button" data-filter="camara" aria-pressed="false">Câmaras frias</button>
+          <button type="button" data-filter="montagem" aria-pressed="false">Montagem</button>
+          <button type="button" data-filter="eletrica" aria-pressed="false">Elétrica</button>
+        </div>
+        <ul class="works" data-works>
+          <li class="work-card" data-cat="camara">
+            <a class="work-card__media" href="assets/img/trabalhos/camara-compressores.webp" data-lightbox data-caption="Central de condensadoras para câmaras frias">
+              <img src="assets/img/trabalhos/camara-compressores-card.webp" alt="Central de condensadoras para câmaras frias" loading="lazy" width="720" height="540">
+              <span class="work-card__tag">Câmara fria</span>
+            </a>
+            <div class="work-card__body">
+              <h3>Central de condensadoras para câmaras frias</h3>
+              <p class="work-card__meta"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.6 17.2a1.4 1.4 0 0 0 2 2l5.7-5.7a4 4 0 0 0 5.2-5.4l-2.4 2.4-2-2 2.6-2.2Z"/></svg>Unidades condensadoras em estrutura metálica</p>
+              <button class="work-card__more" type="button" data-open>Ver mais <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </li>
+          <li class="work-card" data-cat="camara">
+            <a class="work-card__media" href="assets/img/trabalhos/camara-portas-vidro.webp" data-lightbox data-caption="Câmara fria com portas de vidro">
+              <img src="assets/img/trabalhos/camara-portas-vidro-card.webp" alt="Câmara fria com portas de vidro" loading="lazy" width="720" height="540">
+              <span class="work-card__tag">Câmara fria</span>
+            </a>
+            <div class="work-card__body">
+              <h3>Câmara fria com portas de vidro</h3>
+              <p class="work-card__meta"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.6 17.2a1.4 1.4 0 0 0 2 2l5.7-5.7a4 4 0 0 0 5.2-5.4l-2.4 2.4-2-2 2.6-2.2Z"/></svg>Frente expositora iluminada para varejo</p>
+              <button class="work-card__more" type="button" data-open>Ver mais <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </li>
+          <li class="work-card" data-cat="montagem">
+            <a class="work-card__media" href="assets/img/trabalhos/montagem-estrutura.webp" data-lightbox data-caption="Montagem de câmara de grande porte">
+              <img src="assets/img/trabalhos/montagem-estrutura-card.webp" alt="Montagem de câmara de grande porte" loading="lazy" width="720" height="540">
+              <span class="work-card__tag">Montagem</span>
+            </a>
+            <div class="work-card__body">
+              <h3>Montagem de câmara de grande porte</h3>
+              <p class="work-card__meta"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.6 17.2a1.4 1.4 0 0 0 2 2l5.7-5.7a4 4 0 0 0 5.2-5.4l-2.4 2.4-2-2 2.6-2.2Z"/></svg>Painéis isotérmicos em obra</p>
+              <button class="work-card__more" type="button" data-open>Ver mais <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </li>
+          <li class="work-card" data-cat="eletrica">
+            <a class="work-card__media" href="assets/img/trabalhos/quadro-comando.webp" data-lightbox data-caption="Quadro de comando elétrico">
+              <img src="assets/img/trabalhos/quadro-comando-card.webp" alt="Quadro de comando elétrico" loading="lazy" width="720" height="540">
+              <span class="work-card__tag">Elétrica</span>
+            </a>
+            <div class="work-card__body">
+              <h3>Quadro de comando elétrico</h3>
+              <p class="work-card__meta"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.6 17.2a1.4 1.4 0 0 0 2 2l5.7-5.7a4 4 0 0 0 5.2-5.4l-2.4 2.4-2-2 2.6-2.2Z"/></svg>Contatores, disjuntores e proteção</p>
+              <button class="work-card__more" type="button" data-open>Ver mais <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </li>
+          <li class="work-card" data-cat="camara">
+            <a class="work-card__media" href="assets/img/trabalhos/camara-pronta.webp" data-lightbox data-caption="Câmara fria modular finalizada">
+              <img src="assets/img/trabalhos/camara-pronta-card.webp" alt="Câmara fria modular finalizada" loading="lazy" width="720" height="540">
+              <span class="work-card__tag">Câmara fria</span>
+            </a>
+            <div class="work-card__body">
+              <h3>Câmara fria modular finalizada</h3>
+              <p class="work-card__meta"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.6 17.2a1.4 1.4 0 0 0 2 2l5.7-5.7a4 4 0 0 0 5.2-5.4l-2.4 2.4-2-2 2.6-2.2Z"/></svg>Instalação em área externa</p>
+              <button class="work-card__more" type="button" data-open>Ver mais <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </li>
+          <li class="work-card" data-cat="camara">
+            <a class="work-card__media" href="assets/img/trabalhos/camara-expositora.webp" data-lightbox data-caption="Câmara com frente de vidro">
+              <img src="assets/img/trabalhos/camara-expositora-card.webp" alt="Câmara com frente de vidro" loading="lazy" width="720" height="540">
+              <span class="work-card__tag">Câmara fria</span>
+            </a>
+            <div class="work-card__body">
+              <h3>Câmara com frente de vidro</h3>
+              <p class="work-card__meta"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.6 17.2a1.4 1.4 0 0 0 2 2l5.7-5.7a4 4 0 0 0 5.2-5.4l-2.4 2.4-2-2 2.6-2.2Z"/></svg>Estrutura comercial com portas expositoras</p>
+              <button class="work-card__more" type="button" data-open>Ver mais <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </li>
+          <li class="work-card" data-cat="montagem">
+            <a class="work-card__media" href="assets/img/trabalhos/montagem-altura.webp" data-lightbox data-caption="Montagem de painéis em altura">
+              <img src="assets/img/trabalhos/montagem-altura-card.webp" alt="Montagem de painéis em altura" loading="lazy" width="720" height="540">
+              <span class="work-card__tag">Montagem</span>
+            </a>
+            <div class="work-card__body">
+              <h3>Montagem de painéis em altura</h3>
+              <p class="work-card__meta"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.6 17.2a1.4 1.4 0 0 0 2 2l5.7-5.7a4 4 0 0 0 5.2-5.4l-2.4 2.4-2-2 2.6-2.2Z"/></svg>Estrutura com andaime e equipe própria</p>
+              <button class="work-card__more" type="button" data-open>Ver mais <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </li>
+          <li class="work-card" data-cat="camara">
+            <a class="work-card__media" href="assets/img/trabalhos/camara-porta.webp" data-lightbox data-caption="Porta e controlador de temperatura">
+              <img src="assets/img/trabalhos/camara-porta-card.webp" alt="Porta e controlador de temperatura" loading="lazy" width="720" height="540">
+              <span class="work-card__tag">Câmara fria</span>
+            </a>
+            <div class="work-card__body">
+              <h3>Porta e controlador de temperatura</h3>
+              <p class="work-card__meta"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.6 17.2a1.4 1.4 0 0 0 2 2l5.7-5.7a4 4 0 0 0 5.2-5.4l-2.4 2.4-2-2 2.6-2.2Z"/></svg>Acabamento e vedação da câmara</p>
+              <button class="work-card__more" type="button" data-open>Ver mais <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </li>
+          <li class="work-card" data-cat="eletrica">
+            <a class="work-card__media" href="assets/img/trabalhos/quadro-eletrico.webp" data-lightbox data-caption="Cabeamento do painel de comando">
+              <img src="assets/img/trabalhos/quadro-eletrico-card.webp" alt="Cabeamento do painel de comando" loading="lazy" width="720" height="540">
+              <span class="work-card__tag">Elétrica</span>
+            </a>
+            <div class="work-card__body">
+              <h3>Cabeamento do painel de comando</h3>
+              <p class="work-card__meta"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.6 17.2a1.4 1.4 0 0 0 2 2l5.7-5.7a4 4 0 0 0 5.2-5.4l-2.4 2.4-2-2 2.6-2.2Z"/></svg>Organização e identificação dos circuitos</p>
+              <button class="work-card__more" type="button" data-open>Ver mais <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </li>
+          <li class="work-card" data-cat="camara">
+            <a class="work-card__media" href="assets/img/trabalhos/camara-externa.webp" data-lightbox data-caption="Câmara externa com condensadora">
+              <img src="assets/img/trabalhos/camara-externa-card.webp" alt="Câmara externa com condensadora" loading="lazy" width="720" height="540">
+              <span class="work-card__tag">Câmara fria</span>
+            </a>
+            <div class="work-card__body">
+              <h3>Câmara externa com condensadora</h3>
+              <p class="work-card__meta"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.6 17.2a1.4 1.4 0 0 0 2 2l5.7-5.7a4 4 0 0 0 5.2-5.4l-2.4 2.4-2-2 2.6-2.2Z"/></svg>Conjunto pronto para operação</p>
+              <button class="work-card__more" type="button" data-open>Ver mais <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </li>
+          <li class="work-card" data-cat="camara">
+            <a class="work-card__media" href="assets/img/trabalhos/camara-vidro-lateral.webp" data-lightbox data-caption="Câmara expositora de grande porte">
+              <img src="assets/img/trabalhos/camara-vidro-lateral-card.webp" alt="Câmara expositora de grande porte" loading="lazy" width="720" height="540">
+              <span class="work-card__tag">Câmara fria</span>
+            </a>
+            <div class="work-card__body">
+              <h3>Câmara expositora de grande porte</h3>
+              <p class="work-card__meta"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.6 17.2a1.4 1.4 0 0 0 2 2l5.7-5.7a4 4 0 0 0 5.2-5.4l-2.4 2.4-2-2 2.6-2.2Z"/></svg>Portas de vidro com iluminação interna</p>
+              <button class="work-card__more" type="button" data-open>Ver mais <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </li>
         </ul>
 
         <div class="cta-strip cta-strip--light">
@@ -329,31 +460,8 @@
             <strong>Quer um projeto como estes na sua empresa?</strong>
             <span>Envie fotos ou medidas do espaço pelo WhatsApp e receba uma proposta.</span>
           </div>
-          <a class="btn btn--wa" href="https://wa.me/556295596638" data-cta="galeria" data-msg="Olá! Vi os projetos no site da Ápex Cold Sistem e quero um orçamento para minha empresa.">
+          <a class="btn btn--wa" href="https://wa.me/556295596638" data-cta="trabalhos" data-msg="Olá! Vi os trabalhos no site da Ápex Cold Sistem e quero um orçamento para minha empresa.">
             <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Quero um orçamento
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. AVALIAÇÕES
-         Preenchidas a partir de assets/js/reviews.js. Enquanto a lista estiver vazia,
-         a seção fica oculta (nada de depoimentos inventados). Use ?demo-avaliacoes
-         na URL para visualizar o layout com cards de exemplo. -->
-    <section class="section section--ice reviews" id="avaliacoes" aria-labelledby="avaliacoes-title" hidden>
-      <div class="container">
-        <div class="section-head section-head--center">
-          <p class="eyebrow">Avaliações do Google</p>
-          <h2 id="avaliacoes-title">O que nossos clientes dizem</h2>
-        </div>
-        <div class="reviews__wrap">
-          <button class="reviews__nav reviews__nav--prev" type="button" aria-label="Avaliação anterior"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
-          <div class="reviews__viewport"><ul class="reviews__track" data-reviews></ul></div>
-          <button class="reviews__nav reviews__nav--next" type="button" aria-label="Próxima avaliação"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
-        </div>
-        <div class="section-cta">
-          <a class="btn btn--wa btn--lg" href="https://wa.me/556295596638" data-cta="avaliacoes" data-msg="Olá! Vim pelo site da Ápex Cold Sistem e gostaria de um atendimento.">
-            <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Quero ser atendido pela Ápex
           </a>
         </div>
       </div>
@@ -443,7 +551,12 @@
     </div>
   </footer>
 
-  <!-- Botão flutuante -->
+  <!-- Barra fixa de orçamento (somente celular) -->
+  <a class="mobile-cta" href="https://wa.me/556295596638" data-cta="barra-mobile" data-msg="Olá! Vim pelo site da Ápex Cold Sistem e gostaria de um orçamento.">
+    <svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir orçamento pelo WhatsApp
+  </a>
+
+  <!-- Botão flutuante (desktop) -->
   <a class="wa-float" href="https://wa.me/556295596638" data-cta="flutuante" data-msg="Olá! Vim pelo site da Ápex Cold Sistem e gostaria de um orçamento." aria-label="Falar no WhatsApp">
     <span class="wa-float__label">Fale conosco</span>
     <span class="wa-float__btn"><svg aria-hidden="true"><use href="#i-wa"/></svg></span>
@@ -470,7 +583,7 @@
     </div>
   </div>
 
-  <!-- Lightbox da galeria -->
+  <!-- Lightbox dos trabalhos -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
     <button class="lightbox__close" type="button" aria-label="Fechar">×</button>
     <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Foto anterior"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>

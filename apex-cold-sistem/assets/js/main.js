@@ -53,12 +53,12 @@
     });
   });
 
-  /* ---------- Avaliações ---------- */
+  /* ---------- Avaliações (carrossel no estilo Google) ---------- */
   var reviews = Array.isArray(window.APEX_REVIEWS) ? window.APEX_REVIEWS.slice() : [];
   var isDemo = /[?&]demo-avaliacoes\b/.test(window.location.search);
   if (!reviews.length && isDemo) {
-    reviews = [1, 2, 3, 4].map(function (n) {
-      return { name: 'Nome do cliente ' + n, text: 'Exemplo de avaliação. Substitua por avaliações reais em assets/js/reviews.js.', stars: 5, date: 'há 1 semana', demo: true };
+    reviews = [1, 2, 3, 4, 5].map(function (n) {
+      return { name: 'Nome do Cliente ' + n, reviews: n, date: 'há ' + n + ' semanas', stars: 5, text: 'Exemplo de avaliação. Substitua por avaliações reais em assets/js/reviews.js.', demo: true };
     });
   }
   var reviewsSection = document.getElementById('avaliacoes');
@@ -76,86 +76,94 @@
     });
   }
 
+  function initials(name) {
+    var parts = String(name || '?').trim().split(/\s+/);
+    var first = parts[0].charAt(0);
+    var last = parts.length > 1 ? parts[parts.length - 1].charAt(0) : '';
+    return (first + last).toUpperCase();
+  }
+
   function renderReviews(section, list) {
     var track = section.querySelector('[data-reviews]');
-    var palette = ['#1a73e8', '#8e24aa', '#00897b', '#e8710a', '#5d4037', '#3949ab'];
-    var google = '<svg class="review-card__g" viewBox="0 0 48 48" aria-label="Google"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
-    var check = '<span class="review-card__verified" title="Verificado"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg></span>';
+    var palette = ['#e2744b', '#1f8f86', '#5b5bd6', '#d08a1b', '#2a7de1', '#b04a8f'];
+    var google = '<svg class="review-card__g" viewBox="0 0 48 48" role="img" aria-label="Google"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
 
     track.innerHTML = list.map(function (r, i) {
       var stars = Math.max(1, Math.min(5, Number(r.stars) || 5));
-      var initial = escapeHtml((r.name || '?').trim().charAt(0).toUpperCase());
+      var count = Number(r.reviews) || 0;
+      var meta = [count ? count + (count === 1 ? ' avaliação' : ' avaliações') : '', r.date || ''].filter(Boolean).join(' · ');
       return '<li class="review-card">' +
-        '<div class="review-card__top"><span class="review-card__stars" aria-label="' + stars + ' de 5 estrelas">' + '★★★★★'.slice(0, stars) + check + '</span>' + google + '</div>' +
-        '<blockquote>“' + escapeHtml(r.text) + '”</blockquote>' +
-        '<div class="review-card__author"><span class="review-card__avatar" style="background:' + escapeHtml(r.color || palette[i % palette.length]) + '">' + initial + '</span>' +
-        '<div><strong>' + escapeHtml(r.name) + '</strong><span>' + escapeHtml(r.date || '') + '</span></div></div>' +
+        '<div class="review-card__head">' +
+          '<span class="review-card__avatar" style="background:' + escapeHtml(r.color || palette[i % palette.length]) + '">' + escapeHtml(initials(r.name)) + '</span>' +
+          '<div class="review-card__who"><strong>' + escapeHtml(r.name) + '</strong><span>' + escapeHtml(meta) + '</span></div>' +
+          google +
+        '</div>' +
+        '<div class="review-card__stars" aria-label="' + stars + ' de 5 estrelas">' + '★★★★★'.slice(0, stars) + '</div>' +
+        '<p class="review-card__text">' + escapeHtml(r.text) + '</p>' +
         (r.demo ? '<span class="review-card__demo">Exemplo de layout</span>' : '') +
         '</li>';
     }).join('');
 
     var prev = section.querySelector('.reviews__nav--prev');
     var next = section.querySelector('.reviews__nav--next');
-    var index = 0;
     var timer;
-
-    function perView() {
-      var w = window.innerWidth;
-      return w <= 640 ? 1 : w <= 1080 ? 2 : 3;
-    }
-    function maxIndex() { return Math.max(0, list.length - perView()); }
-    function update() {
-      index = Math.min(index, maxIndex());
+    function step() {
       var card = track.children[0];
-      var step = card ? card.getBoundingClientRect().width + 20 : 0;
-      track.style.transform = 'translateX(' + (-index * step) + 'px)';
-      var hideNav = maxIndex() === 0;
-      prev.hidden = next.hidden = hideNav;
+      return card ? card.getBoundingClientRect().width + 24 : 300;
     }
-    function go(delta) {
-      var max = maxIndex();
-      index = index + delta;
-      if (index > max) index = 0;
-      if (index < 0) index = max;
-      update();
+    function atEnd() { return track.scrollLeft + track.clientWidth >= track.scrollWidth - 4; }
+    function go(dir) {
+      if (dir > 0 && atEnd()) track.scrollTo({ left: 0, behavior: 'smooth' });
+      else if (dir < 0 && track.scrollLeft <= 4) track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+      else track.scrollBy({ left: dir * step(), behavior: 'smooth' });
     }
     function autoplay() {
       clearInterval(timer);
-      timer = setInterval(function () { go(1); }, 6000);
+      timer = setInterval(function () { go(1); }, 5000);
     }
     prev.addEventListener('click', function () { go(-1); autoplay(); });
     next.addEventListener('click', function () { go(1); autoplay(); });
-
-    var startX = null;
-    track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', function (e) {
-      if (startX === null) return;
-      var dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 40) { go(dx < 0 ? 1 : -1); autoplay(); }
-      startX = null;
+    ['pointerdown', 'touchstart', 'mouseenter'].forEach(function (ev) {
+      track.addEventListener(ev, function () { clearInterval(timer); }, { passive: true });
     });
-    window.addEventListener('resize', update);
-    update();
+    track.addEventListener('mouseleave', autoplay);
+    track.addEventListener('touchend', autoplay, { passive: true });
     autoplay();
   }
 
-  /* ---------- Galeria + lightbox ---------- */
+  /* ---------- Trabalhos realizados: filtros + lightbox ---------- */
+  var works = Array.prototype.slice.call(document.querySelectorAll('[data-works] .work-card'));
+  document.querySelectorAll('[data-filter]').forEach(function (btn, _, all) {
+    btn.addEventListener('click', function () {
+      var cat = btn.getAttribute('data-filter');
+      all.forEach(function (b) {
+        var on = b === btn;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+      works.forEach(function (card) {
+        card.hidden = cat !== 'all' && card.getAttribute('data-cat') !== cat;
+      });
+    });
+  });
+
   var lightbox = document.getElementById('lightbox');
-  var galleryLinks = Array.prototype.slice.call(document.querySelectorAll('[data-gallery] a'));
+  var visibleLinks = [];
   var current = 0;
   var lastFocus = null;
 
   function showPhoto(i) {
-    current = (i + galleryLinks.length) % galleryLinks.length;
-    var link = galleryLinks[current];
+    current = (i + visibleLinks.length) % visibleLinks.length;
+    var link = visibleLinks[current];
     var img = lightbox.querySelector('img');
     img.src = link.getAttribute('href');
     img.alt = link.getAttribute('data-caption') || '';
     lightbox.querySelector('figcaption').textContent = link.getAttribute('data-caption') || '';
   }
-  function openLightbox(i) {
+  function openLightbox(link) {
+    visibleLinks = works.filter(function (c) { return !c.hidden; }).map(function (c) { return c.querySelector('[data-lightbox]'); });
     lastFocus = document.activeElement;
-    showPhoto(i);
+    showPhoto(Math.max(0, visibleLinks.indexOf(link)));
     lightbox.hidden = false;
     document.body.classList.add('no-scroll');
     lightbox.querySelector('.lightbox__close').focus();
@@ -165,9 +173,11 @@
     document.body.classList.remove('no-scroll');
     if (lastFocus) lastFocus.focus();
   }
-  if (lightbox && galleryLinks.length) {
-    galleryLinks.forEach(function (link, i) {
-      link.addEventListener('click', function (e) { e.preventDefault(); openLightbox(i); });
+  if (lightbox && works.length) {
+    works.forEach(function (card) {
+      var link = card.querySelector('[data-lightbox]');
+      link.addEventListener('click', function (e) { e.preventDefault(); openLightbox(link); });
+      card.querySelector('[data-open]').addEventListener('click', function () { openLightbox(link); });
     });
     lightbox.querySelector('.lightbox__close').addEventListener('click', closeLightbox);
     lightbox.querySelector('.lightbox__nav--prev').addEventListener('click', function () { showPhoto(current - 1); });
@@ -210,7 +220,7 @@
 
   /* ---------- Animação suave ao rolar ---------- */
   if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var targets = document.querySelectorAll('.service-card, .feature, .steps li, .gallery__item, .faq__list details, .cta-strip');
+    var targets = document.querySelectorAll('.service-card, .feature, .steps li, .work-card, .faq__list details, .cta-strip');
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
