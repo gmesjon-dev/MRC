@@ -13,7 +13,7 @@ python3 -m http.server 8080   # abra http://localhost:8080
 
 | Seção | Observações |
 | --- | --- |
-| Banner | Imagem de ambiente climatizado enviada pelo cliente; `hero-desktop.webp` (imagem inteira) e `hero-mobile.webp` (recorte do ar-condicionado e do casal, no topo) |
+| Banner | Imagem de escritório corporativo climatizado enviada pelo cliente; `hero-desktop.webp` (imagem inteira) e `hero-mobile.webp` (recorte do ar-condicionado e das pessoas, no topo) |
 | Marcas | Carrossel infinito com as marcas de climatização e refrigeração, pausa ao passar o mouse |
 | Avaliações | Logo após as marcas. Carrossel no estilo Google (arrastar no celular, setas no desktop), alimentado por `assets/js/reviews.js` |
 | Serviços | Câmara fria, manutenção, instalação, PMOC, VRF e VRV. Cada card tem um botão de WhatsApp com mensagem própria |
