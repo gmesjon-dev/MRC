@@ -245,6 +245,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 .wa-float__tip::after { content: ""; position: absolute; right: -6px; top: 50%; transform: translateY(-50%) rotate(45deg); width: 12px; height: 12px; background: #fff; }
 @keyframes wa-pulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,.55); } 70% { box-shadow: 0 0 0 18px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
 
+/* Barra fixa de WhatsApp (só no mobile) */
+.mobile-wa { display: none; }
+
 /* Pop-up (oferta) */
 .popup { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 16px; }
 .popup[hidden] { display: none; }
@@ -386,8 +389,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   .carousel__btn { display: none; }
   .reviews-summary { margin-top: -12px; }
   .footer__grid { grid-template-columns: 1fr; }
-  .wa-float { width: 58px; height: 58px; right: 16px; bottom: 16px; }
-  .wa-float__tip { display: none; }
+  .wa-float { display: none; }
+  .mobile-wa { display: flex; align-items: center; justify-content: center; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 0px)); background: var(--wa); color: #fff; font-family: var(--font-h); font-weight: 700; font-size: 16px; box-shadow: 0 -6px 20px rgba(27,43,75,.18); }
+  .mobile-wa .i { width: 24px; height: 24px; }
+  .mobile-wa:active { background: var(--wa-dark); }
   .lightbox { padding: 60px 12px; }
   .popup__img { height: 170px; }
   .popup__big { font-size: 54px; }
