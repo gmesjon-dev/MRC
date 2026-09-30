@@ -13,7 +13,7 @@ python3 -m http.server 8080   # abra http://localhost:8080
 
 | Seção | Observações |
 | --- | --- |
-| Banner | Imagem de escritório corporativo climatizado enviada pelo cliente; `hero-desktop.webp` (imagem inteira) e `hero-mobile.webp` (recorte do ar-condicionado e das pessoas, no topo) |
+| Banner | Foto real de câmara fria com portas de vidro; `hero-desktop.webp` (foto à direita, esmaecendo à esquerda) e `hero-mobile.webp` (foto inteira no topo) |
 | Marcas | Carrossel infinito com as marcas de climatização e refrigeração, pausa ao passar o mouse |
 | Avaliações | Logo após as marcas. Carrossel no estilo Google (arrastar no celular, setas no desktop), alimentado por `assets/js/reviews.js` |
 | Serviços | Câmara fria, manutenção, instalação, PMOC, VRF e VRV. Cada card tem um botão de WhatsApp com mensagem própria |
@@ -44,7 +44,6 @@ e também `gtag('event', 'whatsapp_click', ...)` se o gtag estiver na página. N
 
 ## Imagens
 
-- Banner: imagem enviada pelo cliente.
-- `assets/img/trabalhos/`, serviço "Câmara fria" e "Instalação", pop-up e CTA final: **fotos reais enviadas pelo cliente**.
+- `assets/img/trabalhos/`, banner, serviço "Câmara fria" e "Instalação", pop-up e CTA final: **fotos reais enviadas pelo cliente**.
 - Serviços "Manutenção", "PMOC", "VRF" e "VRV": fotos do [Pexels](https://www.pexels.com/license/) (uso comercial gratuito, sem necessidade de atribuição): IDs 6471912, 32588555, 38228166 e 5463587.
 - Logos das marcas (Daikin, LG, Samsung, Carrier, Midea, Gree, Fujitsu, Trane, Elgin, Danfoss, Bitzer, Embraco): seeklogo, sem alteração nas marcas. Para trocar ou incluir, adicione o arquivo em `assets/img/marcas/` e um `<li>` na seção `#marcas`.
