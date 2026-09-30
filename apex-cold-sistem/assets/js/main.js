@@ -91,14 +91,14 @@
     track.innerHTML = list.map(function (r, i) {
       var stars = Math.max(1, Math.min(5, Number(r.stars) || 5));
       var count = Number(r.reviews) || 0;
-      var meta = [count ? count + (count === 1 ? ' avaliação' : ' avaliações') : '', r.date || ''].filter(Boolean).join(' · ');
+      var meta = [r.localGuide ? 'Local Guide' : '', count ? count + (count === 1 ? ' avaliação' : ' avaliações') : ''].filter(Boolean).join(' · ');
       return '<li class="review-card">' +
         '<div class="review-card__head">' +
           '<span class="review-card__avatar" style="background:' + escapeHtml(r.color || palette[i % palette.length]) + '">' + escapeHtml(initials(r.name)) + '</span>' +
           '<div class="review-card__who"><strong>' + escapeHtml(r.name) + '</strong><span>' + escapeHtml(meta) + '</span></div>' +
           google +
         '</div>' +
-        '<div class="review-card__stars" aria-label="' + stars + ' de 5 estrelas">' + '★★★★★'.slice(0, stars) + '</div>' +
+        '<div class="review-card__rating"><span class="review-card__stars" aria-label="' + stars + ' de 5 estrelas">' + '★★★★★'.slice(0, stars) + '</span>' + (r.date ? '<span class="review-card__date">' + escapeHtml(r.date) + '</span>' : '') + '</div>' +
         '<p class="review-card__text">' + escapeHtml(r.text) + '</p>' +
         (r.demo ? '<span class="review-card__demo">Exemplo de layout</span>' : '') +
         '</li>';

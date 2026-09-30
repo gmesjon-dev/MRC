@@ -183,14 +183,16 @@ p { margin: 0 0 1em; }
 .reviews__nav--prev svg { transform: rotate(180deg); }
 .reviews__track { list-style: none; margin: 0 -8px; padding: 8px 8px 16px; display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .reviews__track::-webkit-scrollbar { display: none; }
-.review-card { flex: 0 0 calc((100% - 48px) / 3); min-width: 280px; scroll-snap-align: start; position: relative; background: var(--white); border: 1px solid #e6ebf1; border-radius: 16px; padding: 28px 30px 30px; box-shadow: 0 4px 14px rgba(15, 30, 60, .06); }
+.review-card { flex: 0 0 calc((100% - 72px) / 3.2); min-width: 280px; scroll-snap-align: start; position: relative; background: var(--white); border: 1px solid #e6ebf1; border-radius: 16px; padding: 28px 30px 30px; box-shadow: 0 4px 14px rgba(15, 30, 60, .06); }
 .review-card__head { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
 .review-card__avatar { width: 56px; height: 56px; border-radius: 50%; flex: none; display: grid; place-items: center; color: #fff; font-weight: 600; font-size: 1.1rem; letter-spacing: .02em; }
 .review-card__who { min-width: 0; flex: 1; }
 .review-card__who strong { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 1.08rem; font-weight: 600; color: #111827; line-height: 1.3; }
 .review-card__who span { display: block; font-size: .9rem; color: #6b7280; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .review-card__g { width: 24px; height: 24px; align-self: flex-start; flex: none; }
-.review-card__stars { color: #f5a524; font-size: 1.15rem; letter-spacing: 3px; margin-bottom: 12px; }
+.review-card__rating { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.review-card__stars { color: #f5a524; font-size: 1.15rem; letter-spacing: 3px; }
+.review-card__date { font-size: .9rem; color: #6b7280; }
 .review-card__text { margin: 0; color: #374151; font-size: 1.02rem; line-height: 1.65; }
 .review-card__demo { position: absolute; left: 30px; bottom: 8px; font-size: .66rem; text-transform: uppercase; letter-spacing: .1em; color: #c2410c; }
 
