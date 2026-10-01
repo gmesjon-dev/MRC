@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var WHATSAPP = '5582982107480';
+  var WHATSAPP = '5582996607751';
   var POPUP_DELAY_MS = 30000;
 
   /* ---------- WhatsApp: links + rastreio de conversão ---------- */
