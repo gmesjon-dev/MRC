@@ -25,7 +25,7 @@
 
   <!--
     Google Ads: cole aqui a tag global (gtag.js) da conta e preencha
-    data-conversion em <body> com "AW-XXXXXXXXX/YYYYYYYYYYYY".
+    data-conversion na tag body com "AW-XXXXXXXXX/YYYYYYYYYYYY".
     Todo clique em botão de WhatsApp dispara a conversão (ver assets/js/main.js).
   -->
 
@@ -72,6 +72,7 @@
         <a href="#servicos">Serviços</a>
         <a href="#depoimentos">Avaliações</a>
         <a href="#galeria">Trabalhos</a>
+        <a href="#videos">Vídeos</a>
         <a href="#faq">Dúvidas</a>
       </nav>
       <a class="btn btn--wa btn--sm js-wa" href="#" data-msg="Olá! Vim pelo site e gostaria de um orçamento de ar-condicionado.">
@@ -86,7 +87,7 @@
     <section class="hero">
       <picture class="hero__bg">
         <source media="(max-width: 767px)" srcset="assets/img/hero-mobile.webp" />
-        <img src="assets/img/hero-desktop.webp" alt="Técnico da QClima realizando instalação de ar-condicionado split" width="1920" height="1280" fetchpriority="high" />
+        <img src="assets/img/hero-desktop.webp" alt="Técnico da QClima fazendo manutenção em ar-condicionado split" width="1600" height="1104" fetchpriority="high" />
       </picture>
       <div class="hero__shade" aria-hidden="true"></div>
 
@@ -345,8 +346,27 @@
       </div>
     </section>
 
+    <!-- ===================== VÍDEOS ===================== -->
+    <section class="section section--soft" id="videos">
+      <div class="container">
+        <header class="section__head">
+          <span class="eyebrow">Vídeos</span>
+          <h2>Veja a QClima em ação</h2>
+          <p>Bastidores de instalações, manutenções e higienizações feitas pela nossa equipe.</p>
+        </header>
+        <div class="videos" id="video-list">
+          <!-- cards inseridos via JS (assets/js/main.js → VIDEOS) -->
+        </div>
+        <div class="section__cta">
+          <a class="btn btn--wa js-wa" href="#" data-msg="Olá! Vi os vídeos no site e quero um orçamento.">
+            <svg class="wa-ico"><use href="#i-whatsapp"/></svg> Quero esse serviço
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== COMO FUNCIONA ===================== -->
-    <section class="section section--soft" id="como-funciona">
+    <section class="section" id="como-funciona">
       <div class="container">
         <header class="section__head">
           <span class="eyebrow">Simples e rápido</span>

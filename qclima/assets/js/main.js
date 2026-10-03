@@ -235,6 +235,61 @@
     });
   }
 
+
+  /* ---------- Vídeos ----------
+     Coloque os arquivos em assets/video/ com estes nomes (MP4, vertical 9:16).
+     O poster aparece até o vídeo ser reproduzido. */
+  var VIDEOS = [
+    { src: 'assets/video/video-01.mp4', poster: 'assets/img/galeria-05.webp', title: 'Recarga de gás com manifold' },
+    { src: 'assets/video/video-02.mp4', poster: 'assets/img/galeria-16.webp', title: 'Manutenção completa do split' },
+    { src: 'assets/video/video-03.mp4', poster: 'assets/img/galeria-11.webp', title: 'Instalação da unidade externa' }
+  ];
+
+  var videoList = document.getElementById('video-list');
+  if (videoList) {
+    videoList.innerHTML = VIDEOS.map(function (v, i) {
+      return '<div class="video">' +
+        '<video id="video-' + (i + 1) + '" preload="none" playsinline poster="' + v.poster + '" src="' + v.src + '"></video>' +
+        '<button type="button" class="video__play" aria-label="Assistir: ' + v.title + '">' +
+          '<span><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg></span>' +
+          '<strong class="video__cap">' + v.title + '</strong>' +
+        '</button>' +
+      '</div>';
+    }).join('');
+
+    videoList.querySelectorAll('.video').forEach(function (card) {
+      var video = card.querySelector('video');
+      var showSoon = function () {
+        if (card.querySelector('.video__soon')) return;
+        var tag = document.createElement('span');
+        tag.className = 'video__soon';
+        tag.textContent = 'Vídeo em breve';
+        card.appendChild(tag);
+      };
+      video.addEventListener('error', showSoon);
+      card.querySelector('.video__play').addEventListener('click', function () {
+        videoList.querySelectorAll('video').forEach(function (other) {
+          if (other !== video) other.pause();
+        });
+        video.controls = true;
+        var played = video.play();
+        if (played && played.then) {
+          played.then(function () { card.classList.add('is-playing'); }).catch(showSoon);
+        }
+      });
+      video.addEventListener('pause', function () {
+        if (video.ended) { card.classList.remove('is-playing'); video.controls = false; }
+      });
+    });
+
+    // Sem arquivo publicado, marca o card como "em breve" já no carregamento
+    VIDEOS.forEach(function (v, i) {
+      fetch(v.src, { method: 'HEAD' }).then(function (r) {
+        if (!r.ok) videoList.children[i].querySelector('video').dispatchEvent(new Event('error'));
+      }).catch(function () {});
+    });
+  }
+
   /* ---------- Pop-up após 30s ---------- */
   var popup = document.getElementById('popup');
   function seen(key) { try { return sessionStorage.getItem(key) === '1'; } catch (e) { return false; } }
