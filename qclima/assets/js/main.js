@@ -26,28 +26,21 @@
   var GALLERY = [
     { src: 'galeria-01.webp', w: 1000, h: 710, cat: 'empresarial', title: 'Medição de pressão na condensadora' },
     { src: 'galeria-02.webp', w: 1000, h: 667, cat: 'residencial', title: 'Split instalado em sala integrada' },
-    { src: 'galeria-03.webp', w: 563, h: 1000, cat: 'empresarial', title: 'Circuito elétrico dedicado ao ar' },
     { src: 'galeria-04.webp', w: 1000, h: 827, cat: 'empresarial', title: 'Manutenção em condensadora de cobertura' },
     { src: 'galeria-05.webp', w: 667, h: 1000, cat: 'residencial', title: 'Recarga de gás com manifold' },
     { src: 'galeria-06.webp', w: 668, h: 1000, cat: 'empresarial', title: 'Condensadoras em suporte metálico' },
     { src: 'galeria-07.webp', w: 1000, h: 667, cat: 'residencial', title: 'Condensadora fixada na fachada' },
     { src: 'galeria-08.webp', w: 1000, h: 667, cat: 'empresarial', title: 'Teste de pressão após a recarga' },
     { src: 'galeria-09.webp', w: 1000, h: 667, cat: 'residencial', title: 'Ar-condicionado em sala de estar' },
-    { src: 'galeria-10.webp', w: 563, h: 1000, cat: 'empresarial', title: 'Ligação do quadro de comando' },
-    { src: 'galeria-11.webp', w: 667, h: 1000, cat: 'residencial', title: 'Ajuste de conexões na unidade externa' },
     { src: 'galeria-12.webp', w: 1000, h: 667, cat: 'empresarial', title: 'Manutenção em fachada de prédio' },
     { src: 'galeria-13.webp', w: 1000, h: 667, cat: 'residencial', title: 'Split instalado em apartamento' },
-    { src: 'galeria-14.webp', w: 667, h: 1000, cat: 'residencial', title: 'Revisão elétrica da condensadora' },
-    { src: 'galeria-15.webp', w: 668, h: 1000, cat: 'residencial', title: 'Instalação de tomada para o ar' },
     { src: 'galeria-16.webp', w: 658, h: 1000, cat: 'residencial', title: 'Verificação da carga de gás' },
     { src: 'galeria-17.webp', w: 1000, h: 667, cat: 'residencial', title: 'Condensadora instalada com suporte' },
     { src: 'galeria-18.webp', w: 1000, h: 667, cat: 'empresarial', title: 'Diagnóstico com manifold' },
     { src: 'galeria-19.webp', w: 667, h: 1000, cat: 'residencial', title: 'Split em home office' },
     { src: 'galeria-20.webp', w: 1000, h: 667, cat: 'residencial', title: 'Ambiente climatizado após instalação' },
     { src: 'galeria-21.webp', w: 1000, h: 724, cat: 'empresarial', title: 'Revisão completa da unidade externa' },
-    { src: 'galeria-22.webp', w: 1000, h: 667, cat: 'residencial', title: 'Sala climatizada e sem ruído' },
-    { src: 'galeria-23.webp', w: 667, h: 1000, cat: 'empresarial', title: 'Teste elétrico com multímetro' },
-    { src: 'galeria-24.webp', w: 667, h: 1000, cat: 'empresarial', title: 'Aperto das conexões elétricas' }
+    { src: 'galeria-22.webp', w: 1000, h: 667, cat: 'residencial', title: 'Sala climatizada e sem ruído' }
   ];
 
   /* ---------- WhatsApp + conversão Google Ads ---------- */
@@ -242,7 +235,7 @@
   var VIDEOS = [
     { src: 'assets/video/video-01.mp4', poster: 'assets/img/galeria-05.webp', title: 'Recarga de gás com manifold' },
     { src: 'assets/video/video-02.mp4', poster: 'assets/img/galeria-16.webp', title: 'Manutenção completa do split' },
-    { src: 'assets/video/video-03.mp4', poster: 'assets/img/galeria-11.webp', title: 'Instalação da unidade externa' }
+    { src: 'assets/video/video-03.mp4', poster: 'assets/img/galeria-06.webp', title: 'Instalação da unidade externa' }
   ];
 
   var videoList = document.getElementById('video-list');
