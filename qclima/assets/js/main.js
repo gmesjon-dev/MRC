@@ -10,16 +10,16 @@
 
   /* ---------- Avaliações (formato Google) ---------- */
   var REVIEWS = [
-    { name: 'Rafaela Cavalcanti', date: '18 Setembro 2026', color: '#7c5cf0', text: 'Instalaram 2 splits aqui em casa em Boa Viagem, chegaram no horário e deixaram tudo limpo. Técnico muito educado, explicou tudo direitinho. Recomendo demais!' },
+    { name: 'Rafaela Cavalcanti', date: '18 Setembro 2026', color: '#7c5cf0', text: 'Instalaram 2 splits aqui em casa em Santa Cruz, chegaram no horário e deixaram tudo limpo. Técnico muito educado, explicou tudo direitinho. Recomendo demais!' },
     { name: 'Eduardo Albuquerque', date: '11 Setembro 2026', color: '#0c86d0', text: 'Fizeram o PMOC da minha clínica e resolveram toda a parte de documentação. Atendimento sério e preço justo' },
     { name: 'Juliana Moura', date: '2 Setembro 2026', color: '#e1306c', text: 'Meu ar tava pingando e sem gelar. Vieram no mesmo dia, fizeram a higienização e a recarga de gás e agora tá gelando como novo.' },
-    { name: 'Thiago Lins', date: '27 Agosto 2026', color: '#0f9d58', text: 'Melhor empresa de ar condicionado que já contratei em Recife. Orçamento rápido pelo WhatsApp e serviço impecável' },
+    { name: 'Thiago Lins', date: '27 Agosto 2026', color: '#0f9d58', text: 'Melhor empresa de ar condicionado que já contratei em Caruaru. Orçamento rápido pelo WhatsApp e serviço impecável' },
     { name: 'Patrícia Barbosa', date: '19 Agosto 2026', color: '#f4511e', text: 'Contratei a manutenção dos 6 aparelhos do escritório. Equipe pontual, organizada e não deixaram sujeira nenhuma. Já fechamos contrato mensal.' },
     { name: 'Marcos Vinícius', date: '8 Agosto 2026', color: '#252481', text: 'precisei do ponto elétrico e da instalação, fizeram tudo no mesmo dia. muito bom' },
     { name: 'Carla Menezes', date: '30 Julho 2026', color: '#00897b', text: 'A higienização fez muita diferença, acabou aquele cheiro ruim do ar do quarto das crianças. Super indico a QClima!' },
-    { name: 'André Siqueira', date: '22 Julho 2026', color: '#8e24aa', text: 'Atendimento nota 10 desde o primeiro contato. Instalaram o split no meu apartamento em Olinda com acabamento caprichado' },
+    { name: 'André Siqueira', date: '22 Julho 2026', color: '#8e24aa', text: 'Atendimento nota 10 desde o primeiro contato. Instalaram o split no meu apartamento em Toritama com acabamento caprichado' },
     { name: 'Fernanda Rocha', date: '14 Julho 2026', color: '#d81b60', text: 'Preço justo, cumpriram o prazo e ainda deram dicas pra economizar energia. Voltarei a chamar com certeza.' },
-    { name: 'Ricardo Pessoa', date: '3 Julho 2026', color: '#3949ab', text: 'Tenho uma loja em Jaboatão e sempre chamo a QClima pra manutenção. Nunca deixaram na mão' }
+    { name: 'Ricardo Pessoa', date: '3 Julho 2026', color: '#3949ab', text: 'Tenho uma confecção em Santa Cruz e sempre chamo a QClima pra manutenção. Nunca deixaram na mão' }
   ];
 
   /* ---------- Galeria ---------- */
